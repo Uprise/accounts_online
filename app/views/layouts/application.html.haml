@@ -1,0 +1,14 @@
+!!!
+%html
+	%head
+		%link{ :rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}/
+		%title= "Wallpaper Love Factory :: "+controller.controller_name.capitalize
+		= stylesheet_link_tag 'wallpaper'
+	%body
+		%p
+			= notice
+		%p
+			= alert
+		%header
+			header
+		.content#content= yield
