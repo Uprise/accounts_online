@@ -25,7 +25,11 @@ AccountsOnline::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
   
   config.after_initialize do
-    WICKED_PDF[:exe_path] = "/usr/local/bin/wkhtmltopdf"
+    WickedPdf.config = {
+      #:wkhtmltopdf => '/usr/local/bin/wkhtmltopdf',
+      #:layout => "pdf.html",
+      :exe_path => "/usr/local/bin/wkhtmltopdf"
+    }
   end
 end
 
