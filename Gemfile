@@ -6,7 +6,7 @@ gem "devise"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
-gem "wicked_pdf"
+gem "wicked_pdf", :git => 'git://github.com/mileszs/wicked_pdf.git'
 
 group :development, :test do
 	gem "cucumber-rails"
