@@ -1,2 +1,3 @@
-<%= wicked_pdf_image_tag "pages/one.jpg" %>
-<%= wicked_pdf_image_tag "pages/two.jpg" %>
+<%= params[:debug].present? ? image_tag("pages/one.jpg") : wicked_pdf_image_tag("pages/one.jpg")  %>
+<%= params[:debug].present? ? image_tag("pages/two.jpg") : wicked_pdf_image_tag("pages/two.jpg")  %>
+<p id="legal-name">Sebastian Edwards</p>
