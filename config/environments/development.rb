@@ -31,5 +31,13 @@ AccountsOnline::Application.configure do
       :exe_path => "/usr/local/bin/wkhtmltopdf"
     }
   end
+  
+  config.after_initialize do
+    ActionController::Base.asset_host = Proc.new do |source, request|
+      if request.format == 'pdf'
+        "file://#{Rails.root.join('public')}"
+      end
+    end
+  end
 end
 

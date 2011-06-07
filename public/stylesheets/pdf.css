@@ -1,0 +1,96 @@
+.field{position:absolute}
+
+#page-two #legal-name{margin-top:-967px; margin-left:106px}
+#page-two #trading-name{ margin-top:-924px;  margin-left:122px}
+#page-two #contact-name{ margin-top:-882px;  margin-left:125px}
+#page-two #physical-address-1{ margin-top:-802px;  margin-left:85px}
+#page-two #physical-address-2{ margin-top:-762px;  margin-left:23px}
+#page-two #physical-address-3{ margin-top:-721px;  margin-left:23px}
+#page-two #physical-postcode{ margin-top:-721px;  margin-left:342px}
+#page-two #postal-address-1{ margin-top:-680px;  margin-left:70px}
+#page-two #postal-address-2{ margin-top:-640px;  margin-left:23px}
+#page-two #postal-address-3{ margin-top:-599px;  margin-left:23px}
+#page-two #postal-postcode{ margin-top:-599px;  margin-left:342px}
+#page-two #industry{ margin-top:-554px;  margin-left:507px}
+#page-two #contact-business{ margin-top:-518px;  margin-left:85px}
+#page-two #contact-toll-free{ margin-top:-482px;  margin-left:85px}
+#page-two #contact-facsimile{ margin-top:-446px;  margin-left:91px}
+#page-two #contact-home{ margin-top:-518px;  margin-left:405px}
+#page-two #contact-mobile{ margin-top:-482px;  margin-left:410px}
+#page-two #contact-email{ margin-top:-446px;  margin-left:401px}
+#page-two #bank-account-1-bank{ margin-top:-378px;  margin-left:213px;  letter-spacing:21px}
+#page-two #bank-account-1-branch{ margin-top:-378px;  margin-left:283px;  letter-spacing:19px}
+#page-two #bank-account-1-account{ margin-top:-378px;  margin-left:404px;  letter-spacing:20px}
+#page-two #bank-account-1-suffix{ margin-top:-378px;  margin-left:610px;  letter-spacing:19px}
+#page-two #bank-account-2-bank{ margin-top:-345px;  margin-left:213px;  letter-spacing:21px}
+#page-two #bank-account-2-branch{ margin-top:-345px;  margin-left:283px;  letter-spacing:19px}
+#page-two #bank-account-2-account{ margin-top:-345px;  margin-left:404px;  letter-spacing:20px}
+#page-two #bank-account-2-suffix{ margin-top:-345px;  margin-left:610px;  letter-spacing:19px}
+#page-two #bank-account-3-bank{ margin-top:-310px;  margin-left:213px;  letter-spacing:21px}
+#page-two #bank-account-3-branch{ margin-top:-310px;  margin-left:283px;  letter-spacing:19px}
+#page-two #bank-account-3-account{ margin-top:-310px;  margin-left:404px;  letter-spacing:20px}
+#page-two #bank-account-3-suffix{ margin-top:-310px;  margin-left:610px;  letter-spacing:19px}
+#page-two #gst-number-1{ margin-top:-274px;  margin-left:149px;  letter-spacing:34px}
+#page-two #gst-number-2{ margin-top:-274px;  margin-left:292px;  letter-spacing:34px}
+#page-two #gst-number-3{ margin-top:-274px;  margin-left:432px;  letter-spacing:34px}
+#page-two #accountant-name{ margin-top:-230px;  margin-left:138px}
+#page-two #accountant-address-1{ margin-top:-203px;  margin-left:155px}
+#page-two #accountant-address-2{ margin-top:-176px;  margin-left:115px}
+#page-two #accountant-partner{ margin-top:-230px;  margin-left:472px}
+#page-two #accountant-phone{ margin-top:-201px;  margin-left:470px}
+#page-two #accountant-email{ margin-top:-175px;  margin-left:468px}
+
+#page-three #date{margin-top:-1006px;margin-left:490px}
+#page-three #name{margin-top:-860px;margin-left:20px}
+#page-three #address-1{margin-top:-837px;margin-left:20px}
+#page-three #address-2{margin-top:-814px;margin-left:20px}
+#page-three #address-3{margin-top:-790px;margin-left:20px}
+#page-three #number-of-accounts{margin-top:-690px;margin-left:324px}
+#page-three #connection-fee{margin-top:-690px;margin-left:574px}
+#page-three #training-hours{margin-top:-649px;margin-left:308px}
+#page-three #training-cost{margin-top:-649px;margin-left:398px}
+#page-three #training-total{margin-top:-649px;margin-left:576px}
+#page-three #subscription-ex-gst{margin-top:-847px;margin-left:595px}
+#page-three #subscription-in-gst{margin-top:-793px;margin-left:595px}
+#page-three #travel-total{margin-top:-565px;margin-left:573px}
+#page-three #estimate-total{margin-top:-531px;margin-left:573px}
+
+#page-four #bank-account-1-name{ margin-top:-953px;  margin-left:128px}
+#page-four #bank-account-1{ margin-top:-924px;  margin-left:128px}
+#page-four #bank-account-2-name{ margin-top:-887px;  margin-left:128px}
+#page-four #bank-account-2{ margin-top:-857px;  margin-left:128px}
+#page-four #bank-account-3-name{ margin-top:-822px;  margin-left:128px}
+#page-four #bank-account-3{ margin-top:-793px;  margin-left:128px}
+#page-four #bank-branch-name{ margin-top:-687px;  margin-left:37px}
+#page-four #start-date-day{ margin-top:-577px;  margin-left:100px}
+#page-four #start-date-month{ margin-top:-577px;  margin-left:177px}
+#page-four #start-date-year{ margin-top:-577px;  margin-left:319px}
+#page-four #date-day{ margin-top:-385px;  margin-left:100px}
+#page-four #date-month{ margin-top:-385px;  margin-left:200px}
+#page-four #date-year{ margin-top:-385px;  margin-left:369px}
+#page-four #name{ margin-top:-330px;  margin-left:33px}
+
+#page-five #date-day{margin-top:-931px;margin-left:71px}
+#page-five #date-month{margin-top:-931px;margin-left:115px}
+#page-five #date-year{margin-top:-931px;margin-left:157px}
+#page-five #name{margin-top:-877px;margin-left:140px}
+#page-five #address-1{margin-top:-815px;margin-left:155px}
+#page-five #address-2{margin-top:-772px;margin-left:20px}
+#page-five #address-3{margin-top:-732px;margin-left:19px}
+#page-five #bank-account-bank{ margin-top:-470px;  margin-left:243px;  letter-spacing:15px}
+#page-five #bank-account-branch{ margin-top:-470px;  margin-left:314px;  letter-spacing:15px}
+#page-five #bank-account-account{ margin-top:-470px;  margin-left:433px;  letter-spacing:15px}
+#page-five #bank-account-suffix{ margin-top:-470px;  margin-left:621px;  letter-spacing:15px}
+
+#page-six #bank-account-name{ margin-top:-985px;  margin-left:138px}
+#page-six #bank-account-bank{ margin-top:-904px;  margin-left:38px;  letter-spacing:8px}
+#page-six #bank-account-branch{ margin-top:-904px;  margin-left:71px;  letter-spacing:8px}
+#page-six #bank-account-account{ margin-top:-904px;  margin-left:167px;  letter-spacing:8px}
+#page-six #bank-account-suffix{ margin-top:-904px;  margin-left:312px;  letter-spacing:8px}
+#page-six #date-day{margin-top: -797px;margin-left: 550px}
+#page-six #date-month{margin-top: -797px;margin-left: 594px}
+#page-six #date-year{margin-top: -797px;margin-left: 634px}
+
+#page-seven #bartercard-name{margin-top: -867px; margin-left: 247px}
+#page-seven #bartercard-account-start{margin-top: -824px; margin-left: 490px; letter-spacing:19px;}
+#page-seven #bartercard-account-end{margin-top: -824px; margin-left: 610px; letter-spacing:19px;}

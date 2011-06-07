@@ -1,0 +1,12 @@
+%h1 New Application
+- if @application_form.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@application_form.errors.count, "error")
+      prohibited this user from being saved:
+    %p There were problems with the following fields:
+    %ul
+    - @application_form.errors.full_messages.each do |message|
+      %li= message
+      
+= render 'form'

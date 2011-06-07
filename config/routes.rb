@@ -1,8 +1,16 @@
 AccountsOnline::Application.routes.draw do
+  get 'application_forms/second_step' => 'application_forms#optional_info', :as => 'second_step'
+  post 'application_forms/third_step' => 'application_forms#download', :as => 'third_step'
+  resources :application_forms
+
+  get "pdfs/:id(.:format)" => 'pdfs#show'
+
   get "pages/home"
 
   devise_for :users
   root :to => "pages#home"
+  
+  get 'pdf/:id(.:format)' => 'pdf#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

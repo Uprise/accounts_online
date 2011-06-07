@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/SebastianEdwards/nested_form.git
+  revision: e5953b8b7d959a73c2f1c809ee6d366c7f03879e
+  specs:
+    nested_form (0.1.1)
+
+GIT
   remote: git://github.com/mileszs/wicked_pdf.git
   revision: b58a088eddaa417821ae46ae1602bfdf0a2812b0
   specs:
@@ -37,6 +43,7 @@ GEM
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cancan (1.5.1)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -158,6 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   capybara
   cucumber-rails
   database_cleaner
@@ -170,6 +178,7 @@ DEPENDENCIES
   haml (>= 3.0.0)
   haml-rails
   jquery-rails
+  nested_form!
   rails (= 3.0.4)
   rspec-rails
   spork

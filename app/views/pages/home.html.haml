@@ -1,0 +1,10 @@
+- if current_user
+  %p
+    = "Hello #{current_user.first_name}"
+  %p
+    - if current_user.application_form
+      = link_to "Continue application", edit_application_form_path(:id => current_user.application_form)
+    - else
+      = link_to "Begin a new application", new_application_form_path
+- else
+  = render 'partials/sign_up_or_in'

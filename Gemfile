@@ -3,10 +3,12 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.4'
 gem 'sqlite3'
 gem "devise"
+gem "cancan"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 gem "wicked_pdf", :git => 'git://github.com/mileszs/wicked_pdf.git'
+gem "nested_form", :git => 'git://github.com/SebastianEdwards/nested_form.git'
 
 group :development, :test do
 	gem "cucumber-rails"

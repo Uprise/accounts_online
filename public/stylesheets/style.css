@@ -1,15 +1,1 @@
-.page {
-  width:750px;
-  height:1250px;
-  background:red;
-}
-#legal-name {
-  position:absolute;
-  margin-top:-967px;
-  margin-left:106px;
-}
-
-body {
-  color:red;
-  font-weight:bold;
-}
+.field_with_errors { display:inline; color:red; }

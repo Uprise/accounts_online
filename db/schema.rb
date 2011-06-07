@@ -10,7 +10,54 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401022337) do
+ActiveRecord::Schema.define(:version => 20110530211935) do
+
+  create_table "application_forms", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "trading_name"
+    t.string   "contact_name"
+    t.string   "physical_address_1"
+    t.string   "physical_address_2"
+    t.string   "physical_address_3"
+    t.string   "physical_postcode"
+    t.string   "postal_address_1"
+    t.string   "postal_address_2"
+    t.string   "postal_address_3"
+    t.string   "postal_postcode"
+    t.string   "industry"
+    t.string   "contact_business"
+    t.string   "contact_toll_free"
+    t.string   "contact_facsimile"
+    t.string   "contact_home"
+    t.string   "contact_mobile"
+    t.string   "contact_email"
+    t.string   "gst_number"
+    t.string   "accountant_name"
+    t.string   "accountant_address_1"
+    t.string   "accountant_address_2"
+    t.string   "accountant_partner"
+    t.string   "accountant_phone"
+    t.string   "accountant_email"
+    t.string   "legal_name"
+    t.string   "bartercard_account"
+    t.string   "bartercard_name"
+  end
+
+  create_table "bank_accounts", :force => true do |t|
+    t.string   "bank"
+    t.string   "branch"
+    t.string   "account"
+    t.string   "suffix"
+    t.integer  "application_form_id"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.boolean  "needs_cheques"
+    t.boolean  "pays_subscription"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -24,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20110401022337) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
