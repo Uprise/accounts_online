@@ -44,7 +44,7 @@ class ApplicationFormsController < ApplicationController
   end
   
   def optional_info
-    @application_form = current_user.application_form
+    @application_form = current_user.application_form 
   end
   
   def download
