@@ -789,3 +789,21 @@ div.MoSTVersion {
 	display: none;
 	visibility: hidden;
 }
+
+/* form */
+
+.field label{
+	display:block;
+}
+
+.field input{
+	margin: 5px 0 20px 0;
+}
+
+.field .checker + label{
+	display:inline;
+	vertical-align:middle;
+}
+
+.action span{
+}
