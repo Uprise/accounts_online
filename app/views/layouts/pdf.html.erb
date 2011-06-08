@@ -4,6 +4,12 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <%= stylesheet_link_tag "pdf" %>
+    <%= javascript_include_tag "jquery" %>
+    <script type="text/javascript">
+      $('embed').load(function(){
+        window.print()
+      });
+      </script>
     <%= yield :head %>
   </head>
   <body>

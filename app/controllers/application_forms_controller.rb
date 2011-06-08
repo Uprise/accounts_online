@@ -44,7 +44,7 @@ class ApplicationFormsController < ApplicationController
   end
   
   def optional_info
-    @application_form = current_user.application_form 
+    @application_form = current_user.application_form
   end
   
   def download
@@ -57,7 +57,7 @@ class ApplicationFormsController < ApplicationController
       redirect_to second_step_path if @subscription_account.application_form != current_user.application_form
       @subscription_account.update_attribute :pays_subscription, true
     end
-    redirect_to application_form_path(:id => @application_form.id, :format => :pdf)
+    # redirect_to application_form_path(:id => @application_form.id)
   end
   
   private
