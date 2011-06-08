@@ -2,9 +2,18 @@
 <html>
 <head>
   <title>Accounts Online</title>
-  <%= stylesheet_link_tag 'style', 'http://www.accountsonline.co.nz/templates/Site/styles.css' %>
-  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'application', 'http://www.accountsonline.co.nz/includes/common.js' %>
+  <%= stylesheet_link_tag 'style', 'uniform.default', 'http://www.accountsonline.co.nz/templates/Site/styles.css' %>
+  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'application', 'uniform.min', 'http://www.accountsonline.co.nz/includes/common.js' %>
   <%= csrf_meta_tag %>
+
+
+
+ <script type='text/javascript'>
+  $(function(){
+    $("input, input[type=submit], button").uniform();
+  });
+</script>
+
 </head>
 <body>
 	
