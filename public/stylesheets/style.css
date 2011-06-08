@@ -38,28 +38,17 @@ body p, body div, body li, table caption, table th, table td {
 	color: #000000;
 }
 
-a:link {
-	font-family: Verdana, Geneva, sans-serif;
+a{
+	font-family: Arial, Helvetica, sans-serif !important;
 	font-style: normal;
 	color: #0000CC;
-	text-transform: none;
-	text-decoration: underline;
-}
-
-a:visited {
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	color: #0000CC;
-	text-transform: none;
 	text-decoration: underline;
 }
 
 a:hover {
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	color: #A6A6A6;
-	text-transform: none;
-	text-decoration: underline;
+
+	color: #A6A6A6 !important;
+
 }
 
 h1 {
@@ -798,6 +787,7 @@ div.MoSTVersion {
 
 .field input{
 	margin: 5px 0 20px 0;
+	width:200px !important;
 }
 
 .field .checker + label{
@@ -805,5 +795,57 @@ div.MoSTVersion {
 	vertical-align:middle;
 }
 
-.action span{
+.action{
+margin:10px 0 10px 0;
+}
+
+.form_selector h2, .form_selector h3{
+	font-size:2em;
+	margin-bottom:5px;
+}
+
+.form_selector h1{
+	font-size:3em;
+	margin-bottom:5px;
+}
+
+#application_form_bank_accounts_attributes_0_bank{
+	width:15px !important;
+}
+#application_form_bank_accounts_attributes_0_branch{
+	width:30px !important;
+}
+
+#application_form_bank_accounts_attributes_0_account{
+	width:50px !important;
+}
+#application_form_bank_accounts_attributes_0_suffix{
+	width:25px !important;
+}
+
+.bank_accounts label{
+	display:inline !important;
+}
+
+.ac_name label, .ac_name input{
+	display:block !important;
+}
+
+.bank_accounts .field{
+	display:inline;
+}
+
+.bank label, .remove_nested_fields{
+	display:block !important;
+}
+.remove_nested_fields{
+	margin:-10px 0 10px 0 !important;
+}
+
+#error_explanation{
+	margin-bottom:20px;
+}
+
+.post_address{
+	margin:10px 0 10px 0;
 }

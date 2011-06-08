@@ -3,16 +3,28 @@
 <head>
   <title>Accounts Online</title>
   <%= stylesheet_link_tag 'style', 'uniform.default', 'http://www.accountsonline.co.nz/templates/Site/styles.css' %>
-  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'application', 'uniform.min', 'http://www.accountsonline.co.nz/includes/common.js' %>
+  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'application', 'uniform.min', 'jquery.limit-1.2.source', 'http://www.accountsonline.co.nz/includes/common.js' %>
   <%= csrf_meta_tag %>
 
 
 
- <script type='text/javascript'>
-  $(function(){
-    $("input, input[type=submit], button").uniform();
-  });
+<script type="text/javascript">
+
+
+	
+	$(function(){
+		$('#application_form_bank_accounts_attributes_0_bank').limit('2','#charsLeft');
+		$('#application_form_bank_accounts_attributes_0_branch').limit('4','#charsLeft');
+		$('#application_form_bank_accounts_attributes_0_account').limit('7','#charsLeft');
+		$('#application_form_bank_accounts_attributes_0_suffix').limit('3','#charsLeft');
+	});
+	
+	$(function(){
+    	$("input, input[type=submit], button, select").uniform();
+  	});
+
 </script>
+
 
 </head>
 <body>
@@ -63,7 +75,10 @@
 	
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
-<%= yield %>
+
+	<div class="form_selector">
+		<%= yield %>
+	</div>
 
 </div> 
 </div>

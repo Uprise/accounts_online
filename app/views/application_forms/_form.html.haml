@@ -50,7 +50,7 @@
     = f.text_field :physical_postcode
     
   %h3 Postal Address
-  .field
+  .field.post_address
     = check_box_tag 'same-address'
     = label_tag 'same-address', 'Same as physical address'
   #postal_address
@@ -89,20 +89,20 @@
   
   %h3 Bank accounts
   = f.fields_for :bank_accounts,  do |bank_account_fields|
-    .field
+    .field.ac_name
       = bank_account_fields.label :name, 'Name of account'
       = bank_account_fields.text_field :name
-    .field
-      = bank_account_fields.label :bank
+    .field.bank
+      = bank_account_fields.label :bank, 'Account Number'
       = bank_account_fields.text_field :bank
     .field
-      = bank_account_fields.label :branch
+     
       = bank_account_fields.text_field :branch
     .field
-      = bank_account_fields.label :account
+      
       = bank_account_fields.text_field :account
     .field
-      = bank_account_fields.label :suffix
+     
       = bank_account_fields.text_field :suffix
     = bank_account_fields.link_to_remove "Remove this account"
   = f.link_to_add "Add an account", :bank_accounts
