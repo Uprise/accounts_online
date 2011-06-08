@@ -2,4 +2,17 @@
 = link_to 'Sign up', new_user_registration_path
     
 %h2 Sign in
-= link_to 'Sign in', new_user_session_path
+= form_tag new_user_session_path do
+  .field
+    = label_tag 'user[email]', 'Email'
+    = text_field_tag 'user[email]'
+  .field
+    = label_tag 'user[password]', 'Password'
+    = password_field_tag 'user[password]'
+  .field  
+    = check_box_tag 'user[remember_me]'
+    = label_tag 'user[remember_me]', 'Remember me'
+  .action
+    %button Login
+  .action
+    = link_to "Forgot your password?", new_password_path('user')
