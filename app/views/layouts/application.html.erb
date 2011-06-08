@@ -2,14 +2,87 @@
 <html>
 <head>
   <title>Accounts Online</title>
-  <%= stylesheet_link_tag 'style' %>
-  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'application' %>
+  <%= stylesheet_link_tag 'style', 'http://www.accountsonline.co.nz/templates/Site/styles.css' %>
+  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'application', 'http://www.accountsonline.co.nz/includes/common.js' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+	<script type="text/javascript" src="http://www.accountsonline.co.nz/includes/menu_array.aspx?DOMAIN=0010197&amp;SECT=Site"></script>
+	<script type="text/javascript" src="http://www.accountsonline.co.nz/includes/menu.js"></script>
+	<div class="MoSTTemplate">
+	<div id="center">
+	<div id="header">
+	<div id="headerinside">
+	<div id="headerleft">
+	<object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" classid="CLSID:D27CDB6E-AE6D-11cf-96B8-444553540000" width="62" height="56"><param name="_cx" value="1640"><param name="_cy" value="1481"><param name="FlashVars" value=""><param name="Movie" value="/media/4960.swf"><param name="Src" value="/media/4960.swf"><param name="WMode" value="Window"><param name="Play" value="-1"><param name="Loop" value="-1"><param name="Quality" value="High"><param name="SAlign" value=""><param name="Menu" value="-1"><param name="Base" value=""><param name="AllowScriptAccess" value="always"><param name="Scale" value="ShowAll"><param name="DeviceFont" value="0"><param name="EmbedMovie" value="0"><param name="BGColor" value=""><param name="SWRemote" value=""><param name="MovieData" value=""><param name="SeamlessTabbing" value="1"><param name="Profile" value="0"><param name="ProfileAddress" value=""><param name="ProfilePort" value="0"><param name="AllowNetworking" value="all"> <embed src="http://www.accountsonline.co.nz/media/4960.swf" quality="high" height="56" width="62" loop="true" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object><br /><img style="MARGIN: 0px" class="MoSTImage" alt="Accounts Online" src="http://www.accountsonline.co.nz/templates/Site/images/accountslonline.gif" /> 
+	<p>Intelligent Business Software</p></div><img style="MARGIN: 0px" class="MoSTImage" alt="Accounts Online" src="http://www.accountsonline.co.nz/templates/Site/images/accountsgraphic.jpg" /> 
+
+	<!--headerright was here -->
+	<div id="headerright">
+	<form method="post" name="MoSTLogin" action="/site/customer_zone/default.aspx?"><input value="True" type="hidden" name="Validation" /> 
+	<table class="MoSTLogin" border="0" cellspacing="0" cellpadding="0">
+	<tbody>
+	<tr>
+	<td>
+	<p>Username</p></td>
+	<td style="TEXT-ALIGN: right"><input style="WIDTH: 150px" class="MoSTTextField" name="Username" /> </td></tr>
+	<tr>
+	<td>
+	<p>Password</p></td>
+	<td style="TEXT-ALIGN: right"><input style="WIDTH: 150px" class="MoSTTextField" type="password" name="Password" /> </td></tr>
+	<tr>
+	<td>
+	<p>Forgot Password</p></td>
+	<td style="TEXT-ALIGN: right"><input class="MoSTCheckBox" onclick="toggleButton()" value="True" type="checkbox" name="Forgot" /> <input style="WIDTH: 75px" class="MoSTButton" value="Login" type="submit" name="Submit" /> </td></tr></tbody></table></form></div></div></div>
+	
+	<div id="mainmenu"><p><a id="L206549730" title="" href="http://www.accountsonline.co.nz/Site/default.aspx">HOME</a> </p>
+	<p><a id="L206624443" title="" href="http://www.accountsonline.co.nz/Site/Overview_of_Accounts_Online/default.aspx">ABOUT US</a> </p>
+	<p><a title="Accounts Online Specialists" href="http://www.accountsonline.co.nz/Site/NZ/Team/Accounts_Online_Team.aspx">TEAM</a></p>
+	<p><a id="L233063928" title="" href="http://www.accountsonline.co.nz/Site/NZ/Support/default.aspx">TECHNICAL</a></p>
+	<p><a id="L206624605" title="" href="http://www.accountsonline.co.nz/Site/FAQs/default.aspx">FAQs</a> </p>
+	<p><a title="What our customers are saying" href="http://www.accountsonline.co.nz/Site/NZ/Products/customer_comments.aspx">TESTIMONIALS</a></p>
+	<p><a title="" href="http://www.accountsonline.co.nz/Site/NZ/News.aspx">ARTICLES</a></p>
+	<p><a title="Accounts Online Smart Ideas" href="http://www.accountsonline.co.nz/Site/NZ/Newsletters.aspx">TIPS</a></p>
+	<p><a id="L206640950" title="" href="http://www.accountsonline.co.nz/tools/email.aspx?SECT=Site">CONTACT</a> </p>
+	<p><a id="L206641161" title="" href="http://www.accountsonline.co.nz/tools/search.aspx?SECT=Site">SEARCH</a></p> </div>
+	
+
+	<div id="container">
+
+	<div id="content">
+	<div id="MoSTContent">
+	
+	
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 <%= yield %>
+
+</div> 
+<div id="more">
+<table class="MoSTTable" cellspacing="0" cellpadding="5" width="100%">
+<tbody>
+<tr>
+<td class="MoSTTableRow" valign="top">
+<p align="center"><a title="Order BankLink" href="/Site/NZ/Products/BankLink/Order_BankLink.aspx">ORDER BANKLINK</a><a id="L211298302" title="" href="/Site/NZ/Products1/Accounting/banklink/how_to_order.aspx"> </a></p></td>
+<td class="MoSTTableRow" valign="top">
+<p align="center"><a title="BankLink easy accounting" href="/Site/NZ/Products/BankLink/BankLink_Overview.aspx">MORE ABOUT BANKLINK</a><A onmouseover="this.id='L' + (Math.floor(Math.random() * 10001) + 10000); showMenu('accounting_>', elementPos(this.id, strVertPos), elementPos(this.id, strHorzPos))" title="Xero online accounting" onmouseout=hideMenu() href="/Site/NZ/Products1/Accounting/Xero/Xero_pricing.aspx"></a></p></td>
+<td class="MoSTTableRow" valign="top">
+<p align="center"><a title="Xero accounting online" href="/Site/NZ/Products/Xero/Xero_Overview.aspx">MORE ABOUT XERO</a></p></td>
+<td class="MoSTTableRow" valign="top">
+<p align="center"><a title="Xero accounting online" href="/Site/NZ/Products/Xero/Xero_Signup.aspx">ORDER XERO</a><a title="Xero online accounting" href="/Site/NZ/Products/Xero/Xero_Overview.aspx"> </a></p></td></tr></tbody></table></div></div></div></div>
+<p></p>
+</div>
+
+<div class="MoSTPrint">
+<p></p>
+<div id="MoSTPrintContent"></div>
+</div>
+
+<div class="MoSTVersion"><a href="http://www.e-xpert.co.nz">MoST Content Management V3.0.4170</a></div><script type="text/javascript" src="http://www.accountsonline.co.nz/includes/awstats_misc_tracker.js"></script>
+<noscript><div style="display: none"><img src="http://www.accountsonline.co.nz/includes/awstats_misc_tracker.js?nojs=y" style="height: 0; width: 0" alt="" /></div></noscript>
+
+</body>
+</html>
 
 </body>
 </html>

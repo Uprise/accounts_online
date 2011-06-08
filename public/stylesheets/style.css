@@ -1,1 +1,26 @@
 .field_with_errors { display:inline; color:red; }
+
+#more {
+ display: none;
+}
+
+.MoSTAuthenticated {
+	display: none;
+	visibility: hidden;
+}
+.MoSTUnauthenticated {
+	display: block;
+	visibility: visible;
+}
+.MoSTIgnore {
+	display: none;
+	visibility: hidden;
+}
+
+#headerright{
+	display:none;
+}
+
+#content{
+	width:770px !important;
+}
