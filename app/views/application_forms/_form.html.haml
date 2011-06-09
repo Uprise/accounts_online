@@ -11,7 +11,73 @@
   .field
     = f.label :gst_number, 'GST Number'
     = f.text_field :gst_number
-  
+
+  .float_selector.field  
+    %h3 Physical Address
+    .field
+      = f.label :physical_address_1, 'Street'
+      = f.text_field :physical_address_1
+    .field
+      = f.label :physical_address_2, 'Suburb'
+      = f.text_field :physical_address_2
+    .field
+      = f.label :physical_address_3, 'City'
+      = f.text_field :physical_address_3
+    .field
+      = f.label :physical_postcode, 'Postcode'
+      = f.text_field :physical_postcode
+
+    %h3 Postal Address
+    .field.checker_selector
+      = check_box_tag 'same-address'
+      = label_tag 'same-address', 'Same as physical address'
+    .field
+      = f.label :postal_address_1, 'Street'
+      = f.text_field :postal_address_1
+    .field
+      = f.label :postal_address_2, 'Suburb'
+      = f.text_field :postal_address_2
+    .field
+      = f.label :postal_address_3, 'City'
+      = f.text_field :postal_address_3
+    .field
+      = f.label :postal_postcode, 'Postcode'
+      = f.text_field :postal_postcode
+      
+    %h3 Bank accounts
+    = f.fields_for :bank_accounts,  do |bank_account_fields|
+      .field.ac_name
+        = bank_account_fields.label :name, 'Name of account'
+        = bank_account_fields.text_field :name
+      .field.bank
+        = bank_account_fields.label :bank, 'Account Number'
+        = bank_account_fields.text_field :bank
+      .field
+
+        = bank_account_fields.text_field :branch
+      .field
+
+        = bank_account_fields.text_field :account
+      .field
+
+        = bank_account_fields.text_field :suffix
+      = bank_account_fields.link_to_remove "Remove this account"
+    = f.link_to_add "Add an account", :bank_accounts
+
+    %h3 Bartercard Members
+    .field.checker_selector
+      = check_box_tag 'bartercard-member', "1", !@application_form.bartercard_name.blank? || !@application_form.bartercard_account.blank?
+      = label_tag 'bartercard-member', 'I am a Bartercard member'
+    #bartercard_fields
+      .field
+        = f.label :bartercard_name, 'Name on Bartercard account'
+        = f.text_field :bartercard_name
+      .field
+        = f.label :bartercard_account, 'Bartercard account number'
+        = f.text_field :bartercard_account
+    .action
+      = f.submit
+    
   %h3 Contact person
   .field
     = f.label :contact_name, 'Name'
@@ -35,38 +101,6 @@
     = f.label :contact_email, 'Email address'
     = f.text_field :contact_email
   
-  %h3 Physical Address
-  .field
-    = f.label :physical_address_1, 'Street'
-    = f.text_field :physical_address_1
-  .field
-    = f.label :physical_address_2, 'Suburb'
-    = f.text_field :physical_address_2
-  .field
-    = f.label :physical_address_3, 'City'
-    = f.text_field :physical_address_3
-  .field
-    = f.label :physical_postcode, 'Postcode'
-    = f.text_field :physical_postcode
-    
-  %h3 Postal Address
-  .field.post_address
-    = check_box_tag 'same-address'
-    = label_tag 'same-address', 'Same as physical address'
-  #postal_address
-    .field
-      = f.label :postal_address_1, 'Street'
-      = f.text_field :postal_address_1
-    .field
-      = f.label :postal_address_2, 'Suburb'
-      = f.text_field :postal_address_2
-    .field
-      = f.label :postal_address_3, 'City'
-      = f.text_field :postal_address_3
-    .field
-      = f.label :postal_postcode, 'Postcode'
-      = f.text_field :postal_postcode
-    
   %h3 Accountant Details
   .field
     = f.label :accountant_name, 'Name'
@@ -86,37 +120,3 @@
   .field
     = f.label :accountant_email, 'Email'
     = f.text_field :accountant_email
-  
-  %h3 Bank accounts
-  = f.fields_for :bank_accounts,  do |bank_account_fields|
-    .field.ac_name
-      = bank_account_fields.label :name, 'Name of account'
-      = bank_account_fields.text_field :name
-    .field.bank
-      = bank_account_fields.label :bank, 'Account Number'
-      = bank_account_fields.text_field :bank
-    .field
-     
-      = bank_account_fields.text_field :branch
-    .field
-      
-      = bank_account_fields.text_field :account
-    .field
-     
-      = bank_account_fields.text_field :suffix
-    = bank_account_fields.link_to_remove "Remove this account"
-  = f.link_to_add "Add an account", :bank_accounts
-  
-  %h3 Bartercard Members
-  .field
-    = check_box_tag 'bartercard-member', "1", !@application_form.bartercard_name.blank? || !@application_form.bartercard_account.blank?
-    = label_tag 'bartercard-member', 'I am a Bartercard member'
-  #bartercard_fields
-    .field
-      = f.label :bartercard_name, 'Name on Bartercard account'
-      = f.text_field :bartercard_name
-    .field
-      = f.label :bartercard_account, 'Bartercard account number'
-      = f.text_field :bartercard_account
-  .action
-    = f.submit

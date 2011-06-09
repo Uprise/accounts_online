@@ -799,6 +799,14 @@ div.MoSTVersion {
 margin:10px 0 10px 0;
 }
 
+.form_selector{
+	width:500px;
+}
+
+.float_selector{
+	float:right;
+}
+
 .form_selector h2, .form_selector h3{
 	font-size:2em;
 	margin-bottom:5px;
@@ -846,6 +854,6 @@ margin:10px 0 10px 0;
 	margin-bottom:20px;
 }
 
-.post_address{
+.checker_selector{
 	margin:10px 0 10px 0;
 }
