@@ -74,11 +74,8 @@ h2 {
 }
 
 h3 {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 12px;
 	font-style: normal;
 	color: #FF0000;
-	font-weight: bold;
 	text-transform: none;
 	text-decoration: none;
 	margin-bottom: 0px;
@@ -587,6 +584,7 @@ background-color: white!important;
 #MoSTContent {
 float: left;
 padding: 15px;
+width:740px;
 
 }
 
@@ -785,9 +783,9 @@ div.MoSTVersion {
 	display:block;
 }
 
-.field input{
+input{
 	margin: 5px 0 20px 0;
-	width:200px !important;
+	width:200px;
 }
 
 .field .checker + label{
@@ -817,30 +815,18 @@ margin:10px 0 10px 0;
 	margin-bottom:5px;
 }
 
-#application_form_bank_accounts_attributes_0_bank{
-	width:15px !important;
+.fields .field .bank{
+	width:22px;
 }
-#application_form_bank_accounts_attributes_0_branch{
-	width:30px !important;
-}
-
-#application_form_bank_accounts_attributes_0_account{
-	width:50px !important;
-}
-#application_form_bank_accounts_attributes_0_suffix{
-	width:25px !important;
+.fields .field .branch{
+	width:42px;
 }
 
-.bank_accounts label{
-	display:inline !important;
+.fields .field .account{
+	width:75px;
 }
-
-.ac_name label, .ac_name input{
-	display:block !important;
-}
-
-.bank_accounts .field{
-	display:inline;
+.fields .field .suffix{
+	width:31px;
 }
 
 .bank label, .remove_nested_fields{
@@ -857,3 +843,40 @@ margin:10px 0 10px 0;
 .checker_selector{
 	margin:10px 0 10px 0;
 }
+
+.fields {
+  padding:20px;
+  border-radius:20px;
+}
+
+label{text-indent:10px; font-size:13px;}
+h3 { font-weight:normal; font-size:20px; margin-bottom:10px;}
+.left { float:left; }
+.right { float:right; }
+
+input{
+  padding:10px;
+}
+
+.fields {
+  margin-bottom:10px;
+  clear:both;
+}
+
+br {
+  clear:both;
+}
+
+#add_account {
+  float:left;
+  width:100%;
+}
+
+.fields.bank_accounts {
+  margin-bottom:0;
+  padding-bottom:0;
+}
+
+#application_form_gst_number_1, #application_form_gst_number_2, #application_form_gst_number_3 {width:31px;}
+
+.gst_number.right { float:left; margin-left:30px; }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530211935) do
+ActiveRecord::Schema.define(:version => 20110609215136) do
 
   create_table "application_forms", :force => true do |t|
     t.integer  "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110530211935) do
     t.string   "contact_home"
     t.string   "contact_mobile"
     t.string   "contact_email"
-    t.string   "gst_number"
+    t.string   "gst_number_1"
     t.string   "accountant_name"
     t.string   "accountant_address_1"
     t.string   "accountant_address_2"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20110530211935) do
     t.string   "legal_name"
     t.string   "bartercard_account"
     t.string   "bartercard_name"
+    t.string   "gst_number_2"
+    t.string   "gst_number_3"
   end
 
   create_table "bank_accounts", :force => true do |t|

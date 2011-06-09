@@ -1,5 +1,22 @@
 $(document).ready(function(){
-  $('#same-address, #application_form_physical_address_1, #application_form_physical_address_2, #application_form_physical_address_3, #application_form_physical_postcode').change(function(){
+  function move_along($selector, limit, $next) {
+    $selector.live('keydown', function(e) {
+      if ($next == null) { $next = $(this).next(); }
+      if( e.which != 8 && $(this).val().length >= limit ) $next.focus()
+    });
+  }
+
+		move_along($('input.bank'), 2)
+		move_along($('input.branch'), 4)
+		move_along($('input.account'), 7)
+		move_along($('input.suffix'), 3, $('input.suffix').parent().next().find('input:visible').first())
+		move_along($('#application_form_gst_number_1'), 3)
+		move_along($('#application_form_gst_number_2'), 3)
+		move_along($('#application_form_gst_number_3'), 3, $('#application_form_contact_name'))
+	
+    $("input, input[type=submit], select").uniform();
+  	
+  $('#same-address, #application_form_physical_address_1, #application_form_physical_address_2, #application_form_physical_address_3, #application_form_physical_postcode').keydown(function(){
     copy_addresses();
   });
   
@@ -25,4 +42,34 @@ $(document).ready(function(){
   
   bartercard();
   $('#bartercard-member').change(bartercard);
+  
+  var iFrames = $('embed');
+
+  function iResize() {
+
+          for (var i = 0, j = iFrames.length; i < j; i++) {
+            iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
+      }
+
+          if ($.browser.safari || $.browser.opera) { 
+
+             iFrames.load(function(){
+                 setTimeout(iResize, 0);
+         });
+
+             for (var i = 0, j = iFrames.length; i < j; i++) {
+                          var iSource = iFrames[i].src;
+                          iFrames[i].src = '';
+                          iFrames[i].src = iSource;
+         }
+
+          } else {
+             iFrames.load(function() {
+                 this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+             });
+          }
+
+  });
+  
+  iResize();
 })

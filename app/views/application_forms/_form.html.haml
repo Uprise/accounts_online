@@ -1,122 +1,145 @@
-= nested_form_for @application_form do |f|
-  .field
-    = f.label :legal_name, 'Legal Name'
-    = f.text_field :legal_name
-  .field
-    = f.label :trading_name, 'Trading Name'
-    = f.text_field :trading_name
-  .field
-    = f.label :industry, 'Industry'
-    = f.text_field :industry
-  .field
-    = f.label :gst_number, 'GST Number'
-    = f.text_field :gst_number
+- if @application_form.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@application_form.errors.count, "error")
+      prohibited this user from being saved:
+    %p There were problems with the following fields:
+    %ul
+    - @application_form.errors.full_messages.each do |message|
+      %li= message
 
-  .float_selector.field  
+= nested_form_for @application_form do |f|
+  #business.fields
+    %h3 Business Info
+    .field.left
+      = f.label :legal_name, 'Legal Name'
+      = f.text_field :legal_name
+    .field.right
+      = f.label :trading_name, 'Trading Name'
+      = f.text_field :trading_name
+    .field.left
+      = f.label :industry, 'Industry'
+      = f.text_field :industry
+    .field.right.gst_number
+      = f.label :gst_number_1, 'GST Number'
+      = f.text_field :gst_number_1
+      = f.text_field :gst_number_2
+      = f.text_field :gst_number_3
+  
+  #contact.fields
+    %h3 Contact person
+    .field.left
+      = f.label :contact_name, 'Name'
+      = f.text_field :contact_name
+    %br
+    .field.left
+      = f.label :contact_email, 'Email address'
+      = f.text_field :contact_email
+    .field.right
+      = f.label :contact_business, 'Business phone'
+      = f.text_field :contact_business
+    .field.left
+      = f.label :contact_mobile, 'Mobile phone'
+      = f.text_field :contact_mobile
+    .field.right
+      = f.label :contact_toll_free, 'Toll-free phone'
+      = f.text_field :contact_toll_free
+    .field.left
+      = f.label :contact_facsimile, 'Facsimile'
+      = f.text_field :contact_facsimile
+    .field.right
+      = f.label :contact_home, 'Home phone'
+      = f.text_field :contact_home
+    
+  #accountant.fields
+    %h3 Accountant Details
+    .field.left
+      = f.label :accountant_name, 'Name'
+      = f.text_field :accountant_name
+    .field.right
+      = f.label :accountant_address_1, 'Street'
+      = f.text_field :accountant_address_1
+    .field.left
+      = f.label :accountant_address_2, 'City'
+      = f.text_field :accountant_address_2
+    .field.right
+      = f.label :accountant_partner, 'Postcode'
+      = f.text_field :accountant_partner
+    .field.left
+      = f.label :accountant_phone, 'Phone'
+      = f.text_field :accountant_phone
+    .field.right
+      = f.label :accountant_email, 'Email'
+      = f.text_field :accountant_email
+
+  #physical.fields
     %h3 Physical Address
-    .field
+    .field.left
       = f.label :physical_address_1, 'Street'
       = f.text_field :physical_address_1
-    .field
+    .field.right
       = f.label :physical_address_2, 'Suburb'
       = f.text_field :physical_address_2
-    .field
+    .field.left
       = f.label :physical_address_3, 'City'
       = f.text_field :physical_address_3
-    .field
+    .field.right
       = f.label :physical_postcode, 'Postcode'
       = f.text_field :physical_postcode
 
+  #postal.fields
     %h3 Postal Address
     .field.checker_selector
       = check_box_tag 'same-address'
       = label_tag 'same-address', 'Same as physical address'
-    .field
+    .field.left
       = f.label :postal_address_1, 'Street'
       = f.text_field :postal_address_1
-    .field
+    .field.right
       = f.label :postal_address_2, 'Suburb'
       = f.text_field :postal_address_2
-    .field
+    .field.left
       = f.label :postal_address_3, 'City'
       = f.text_field :postal_address_3
-    .field
+    .field.right
       = f.label :postal_postcode, 'Postcode'
       = f.text_field :postal_postcode
-      
+  
+  #bank_accounts.fields
     %h3 Bank accounts
     = f.fields_for :bank_accounts,  do |bank_account_fields|
-      .field.ac_name
+      .field.left
         = bank_account_fields.label :name, 'Name of account'
         = bank_account_fields.text_field :name
-      .field.bank
+      .field.right
         = bank_account_fields.label :bank, 'Account Number'
-        = bank_account_fields.text_field :bank
-      .field
+        = bank_account_fields.text_field :bank, :class => 'bank'
+        = bank_account_fields.text_field :branch, :class => 'branch'
+        = bank_account_fields.text_field :account, :class => 'account'
+        = bank_account_fields.text_field :suffix, :class => 'suffix'
+      .field.left
+        = bank_account_fields.check_box :needs_cheques
+        = bank_account_fields.label :needs_cheques, 'Does this account need encoded cheques?'
+      .action.right
+        = bank_account_fields.link_to_remove "Remove this account"
+      %br
+    .action#add_account
+      = f.link_to_add "+ Add another account", :bank_accounts
+    
+  %br
 
-        = bank_account_fields.text_field :branch
-      .field
-
-        = bank_account_fields.text_field :account
-      .field
-
-        = bank_account_fields.text_field :suffix
-      = bank_account_fields.link_to_remove "Remove this account"
-    = f.link_to_add "Add an account", :bank_accounts
-
+  #bank_accounts.fields
     %h3 Bartercard Members
     .field.checker_selector
       = check_box_tag 'bartercard-member', "1", !@application_form.bartercard_name.blank? || !@application_form.bartercard_account.blank?
       = label_tag 'bartercard-member', 'I am a Bartercard member'
     #bartercard_fields
-      .field
+      .field.left
         = f.label :bartercard_name, 'Name on Bartercard account'
         = f.text_field :bartercard_name
-      .field
+      .field.right
         = f.label :bartercard_account, 'Bartercard account number'
         = f.text_field :bartercard_account
-    .action
-      = f.submit
-    
-  %h3 Contact person
-  .field
-    = f.label :contact_name, 'Name'
-    = f.text_field :contact_name
-  .field
-    = f.label :contact_business, 'Business phone'
-    = f.text_field :contact_business
-  .field
-    = f.label :contact_toll_free, 'Toll-free phone'
-    = f.text_field :contact_toll_free
-  .field
-    = f.label :contact_facsimile, 'Facsimile'
-    = f.text_field :contact_facsimile
-  .field
-    = f.label :contact_home, 'Home phone'
-    = f.text_field :contact_home
-  .field
-    = f.label :contact_mobile, 'Mobile phone'
-    = f.text_field :contact_mobile
-  .field
-    = f.label :contact_email, 'Email address'
-    = f.text_field :contact_email
+  .action
+    = f.submit
   
-  %h3 Accountant Details
-  .field
-    = f.label :accountant_name, 'Name'
-    = f.text_field :accountant_name
-  .field
-    = f.label :accountant_address_1, 'Street'
-    = f.text_field :accountant_address_1
-  .field
-    = f.label :accountant_address_2, 'City'
-    = f.text_field :accountant_address_2
-  .field
-    = f.label :accountant_partner, 'Postcode'
-    = f.text_field :accountant_partner
-  .field
-    = f.label :accountant_phone, 'Phone'
-    = f.text_field :accountant_phone
-  .field
-    = f.label :accountant_email, 'Email'
-    = f.text_field :accountant_email

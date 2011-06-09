@@ -5,15 +5,16 @@ class ApplicationForm < ActiveRecord::Base
   attr_accessible :legal_name, :trading_name, :contact_name, :physical_address_1, :physical_address_2, :physical_address_3, 
                   :physical_postcode, :postal_address_1, :postal_address_2, :postal_address_3, :postal_postcode,
                   :industry, :contact_business, :contact_toll_free, :contact_facsimile, :contact_home, :contact_mobile,
-                  :contact_email, :gst_number, :accountant_name, :accountant_address_1, :accountant_address_2, :accountant_partner, 
+                  :contact_email, :gst_number_1, :gst_number_2, :gst_number_3, :accountant_name, :accountant_address_1, :accountant_address_2, :accountant_partner, 
                   :accountant_phone, :accountant_email, :bank_accounts_attributes, :bartercard_account, :bartercard_name
                   
   validates :legal_name,            :presence     =>  true
   validates :trading_name,          :presence     =>  true
   validates :contact_name,          :presence     =>  true
   validates :industry,              :presence     =>  true
-  validates :gst_number,            :presence     =>  true,
-                                    :length       =>  { :is => 9 }
+  validates :gst_number_1,          :length       =>  { :is => 3 }
+  validates :gst_number_2,          :length       =>  { :is => 3 }
+  validates :gst_number_3,          :length       =>  { :is => 3 }
   
   validates :physical_address_1,    :presence     =>  true
   validates :physical_address_2,    :presence     =>  true
@@ -44,5 +45,9 @@ class ApplicationForm < ActiveRecord::Base
   validates :bartercard_name,       :presence     =>  { :unless => Proc.new { |a| a.bartercard_account.blank? } }
   validates :bartercard_account,    :length       =>  { :is     => 16, 
                                                         :unless => Proc.new { |a| a.bartercard_name.blank? }  }
+                                                        
+  def gst_number
+    "#{self.gst_number_1}#{self.gst_number_2}#{self.gst_number_3}"
+  end
   
 end

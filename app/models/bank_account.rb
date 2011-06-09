@@ -1,6 +1,6 @@
 class BankAccount < ActiveRecord::Base
   belongs_to :application_form
-  attr_accessible :name, :bank, :branch, :account, :suffix, :needs_cheques?, :pays_subscription?
+  attr_accessible :name, :bank, :branch, :account, :suffix, :needs_cheques, :pays_subscription?
   
   validates :name,      :presence     =>  true
   validates :bank,      :presence     =>  true,
