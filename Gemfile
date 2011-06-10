@@ -7,6 +7,7 @@ gem "cancan"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
+gem "heroku"
 gem "wicked_pdf", :git => 'git://github.com/mileszs/wicked_pdf.git'
 gem "nested_form", :git => 'git://github.com/SebastianEdwards/nested_form.git'
 
