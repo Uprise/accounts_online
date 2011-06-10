@@ -46,4 +46,12 @@ AccountsOnline::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.after_initialize do
+    ActionController::Base.asset_host = Proc.new do |source, request|
+      if request.format == 'pdf'
+        "file://#{Rails.root.join('public')}"
+      end
+    end
+  end
 end
