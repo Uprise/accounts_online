@@ -1,5 +1,5 @@
 class ApplicationFormsController < ApplicationController
-  before_filter :correct_user, :only => [:edit, :update, :show, :update_notes, :update_status]
+  before_filter :correct_user, :only => [:edit, :update, :show]
   
   def new
     @application_form = ApplicationForm.new

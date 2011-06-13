@@ -19,7 +19,7 @@
             = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Problem with forms', 'PROBLEM'], ['Forms complete', 'COMPLETE']], user.application_form.status)
         %td
           %form{ :action => "/application_forms/update_notes/#{user.application_form.id}", :method => 'POST'}
-            = text_field_tag 'application_form[notes]'
+            = text_field_tag 'application_form[notes]', user.application_form.notes
           
 :javascript
   $('select, input').change(function(){
