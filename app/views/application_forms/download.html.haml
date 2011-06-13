@@ -1,1 +1,4 @@
-%iframe{:type => 'application/pdf', :src => "/application_forms/#{@application_form.id}.pdf", :width => '793', :height => '8000', :id => 'pdf'}
+= button_to_function "Print forms", "frames['pdf'].print()"
+
+#pdf_content
+  %iframe{:type => 'application/pdf', :src => "/application_forms/#{@application_form.id}.pdf", :width => '733', :height => '800', :id => 'pdf'}

@@ -1,5 +1,5 @@
 class ApplicationFormsController < ApplicationController
-  before_filter :correct_user, :only => [:edit, :update, :show]
+  before_filter :correct_user, :only => [:edit, :update, :show, :update_notes, :update_status]
   
   def new
     @application_form = ApplicationForm.new
@@ -60,9 +60,26 @@ class ApplicationFormsController < ApplicationController
     # redirect_to application_form_path(:id => @application_form.id)
   end
   
+  def update_notes
+    @application_form = ApplicationForm.find(params[:id])
+    unless @application_form.update_attributes(params[:application_form])
+      raise "Unable to update notes"
+    end
+    redirect_to admin_home_path
+  end
+  
+  def update_status
+    @application_form = ApplicationForm.find(params[:id])
+    unless @application_form.update_attributes(params[:application_form])
+      raise "Unable to update notes"
+    end
+    redirect_to admin_home_path
+  end
+  
   private
     def correct_user
       @application_form = ApplicationForm.find(params[:id])
+      return if current_user == User.first || current_user == User.last
       redirect_to root_path unless current_user == @application_form.user
     end
 end

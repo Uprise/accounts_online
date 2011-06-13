@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110609215136) do
+ActiveRecord::Schema.define(:version => 20110613220910) do
 
   create_table "application_forms", :force => true do |t|
     t.integer  "user_id"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20110609215136) do
     t.string   "bartercard_name"
     t.string   "gst_number_2"
     t.string   "gst_number_3"
+    t.string   "notes"
+    t.string   "status"
   end
 
   create_table "bank_accounts", :force => true do |t|

@@ -43,7 +43,7 @@ $(document).ready(function(){
   bartercard();
   $('#bartercard-member').change(bartercard);
   
-  $('#pdf').load(function(){
-    frames['pdf'].print()
-  })
+  // $('#pdf').load(function(){
+  //   frames['pdf'].print()
+  // })
 })

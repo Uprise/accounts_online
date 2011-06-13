@@ -1,0 +1,28 @@
+%p= current_user.first_name
+%h3 New Clients
+%table
+  %tr
+    %td Name
+    %td Date filed
+    %td Form type
+    %td Status
+    %td Notes
+  - @users.each do |user|
+    - if user.application_form
+      
+      %tr
+        %td= "#{user.first_name} #{user.last_name}"
+        %td= user.application_form.created_at
+        %td= "New Client"        
+        %td
+          %form{ :action => "/application_forms/update_status/#{user.application_form.id}", :method => 'POST'}
+            = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Problem with forms', 'PROBLEM'], ['Forms complete', 'COMPLETE']], user.application_form.status)
+        %td
+          %form{ :action => "/application_forms/update_notes/#{user.application_form.id}", :method => 'POST'}
+            = text_field_tag 'application_form[notes]'
+          
+:javascript
+  $('select, input').change(function(){
+    $form = $(this).closest('form');
+    $.post($form.attr('action'), $form.serialize());
+  })

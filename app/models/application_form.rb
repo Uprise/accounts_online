@@ -6,7 +6,7 @@ class ApplicationForm < ActiveRecord::Base
                   :physical_postcode, :postal_address_1, :postal_address_2, :postal_address_3, :postal_postcode,
                   :industry, :contact_business, :contact_toll_free, :contact_facsimile, :contact_home, :contact_mobile,
                   :contact_email, :gst_number_1, :gst_number_2, :gst_number_3, :accountant_name, :accountant_address_1, :accountant_address_2, :accountant_partner, 
-                  :accountant_phone, :accountant_email, :bank_accounts_attributes, :bartercard_account, :bartercard_name
+                  :accountant_phone, :accountant_email, :bank_accounts_attributes, :bartercard_account, :bartercard_name, :status, :notes
                   
   validates :legal_name,            :presence     =>  true
   validates :trading_name,          :presence     =>  true

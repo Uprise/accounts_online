@@ -1,7 +1,5 @@
 = link_to 'Back to form', edit_application_form_path(:id => current_user.application_form)
 
-%h1 Costs
-
 %h3 One-off cost
 %table
   %tr
@@ -46,7 +44,7 @@
   %h2 Choose account to debit
   .field
     - options = @application_form.bank_accounts.collect {|a| [ "#{a.name} / #{a.bank}-#{a.branch}-#{a.account}-#{a.suffix}", a.id ] }
-    - options += [["Bartercard Account / #{@application_form.bartercard_account}", 'bartercard']] unless @application_form.bartercard_account.blank?
+    - options += [["Bartercard Account / #{@application_form.bartercard_account[0..3]}-#{@application_form.bartercard_account[4..7]}-#{@application_form.bartercard_account[8..11]}-#{@application_form.bartercard_account[12..15]}", 'bartercard']] unless @application_form.bartercard_account.blank?
     = select("bank_account", "pays_subscription", options, { :include_blank => true })
   .action
     = submit_tag 'Continue'
