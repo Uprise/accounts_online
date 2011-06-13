@@ -1,4 +1,4 @@
-%p= current_user.first_name
+%p= "Hello, #{current_user.first_name}"
 %h3 New Clients
 %table
   %tr
@@ -25,4 +25,10 @@
   $('select, input').change(function(){
     $form = $(this).closest('form');
     $.post($form.attr('action'), $form.serialize());
+  })
+  
+  $('input').keypress(function(k){
+    $form = $(this).closest('form');
+    $.post($form.attr('action'), $form.serialize());
+    if (k.which == 13) return false;
   })
