@@ -7,7 +7,8 @@ AccountsOnline::Application.routes.draw do
 
   get "pdfs/:id(.:format)" => 'pdfs#show'
   
-  get "admin/home"
+  get "admin/edit/:id" => 'admin#edit', :as => 'admin_edit'
+  get "admin" => 'admin#home'
 
   get "pages/home"
 

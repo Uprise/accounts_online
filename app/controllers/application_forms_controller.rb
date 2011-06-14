@@ -22,7 +22,11 @@ class ApplicationFormsController < ApplicationController
   
   def update
     if @application_form.update_attributes(params[:application_form])
-      redirect_to second_step_path
+      if current_user.admin?
+        redirect_to admin_path
+      else
+        redirect_to second_step_path
+      end
     else
       @title = "Edit user"
       render 'edit'
@@ -65,7 +69,8 @@ class ApplicationFormsController < ApplicationController
     unless @application_form.update_attributes(params[:application_form])
       raise "Unable to update notes"
     end
-    redirect_to admin_home_path
+    # redirect_to admin_home_path
+    render :nothing => true
   end
   
   def update_status
@@ -73,7 +78,8 @@ class ApplicationFormsController < ApplicationController
     unless @application_form.update_attributes(params[:application_form])
       raise "Unable to update notes"
     end
-    redirect_to admin_home_path
+    # redirect_to admin_home_path
+    render :nothing => true
   end
   
   private

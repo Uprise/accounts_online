@@ -1,25 +1,24 @@
-%p= "Hello, #{current_user.first_name}"
 %h3 New Clients
 %table
-  %tr
-    %td Name
-    %td Date filed
-    %td Form type
-    %td Status
-    %td Notes
-  - @users.each do |user|
-    - if user.application_form
+  %thead
+    %tr
+      %td Name
+      %td Date filed
+      %td Status
+      %td Notes
+  %tbody
+    - @users.each do |user|
+      - if user.application_form
       
-      %tr
-        %td= "#{user.first_name} #{user.last_name}"
-        %td= user.application_form.created_at
-        %td= "New Client"        
-        %td
-          %form{ :action => "/application_forms/update_status/#{user.application_form.id}", :method => 'POST'}
-            = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Problem with forms', 'PROBLEM'], ['Forms complete', 'COMPLETE']], user.application_form.status)
-        %td
-          %form{ :action => "/application_forms/update_notes/#{user.application_form.id}", :method => 'POST'}
-            = text_field_tag 'application_form[notes]', user.application_form.notes
+        %tr
+          %td= link_to "#{user.first_name} #{user.last_name}", "/admin/edit/#{user.application_form.id}"
+          %td= user.application_form.created_at.strftime "%d/%m/%y" 
+          %td
+            %form{ :action => "/application_forms/update_status/#{user.application_form.id}", :method => 'POST'}
+              = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Problem with forms', 'PROBLEM'], ['Forms complete', 'COMPLETE']], user.application_form.status)
+          %td
+            %form{ :action => "/application_forms/update_notes/#{user.application_form.id}", :method => 'POST'}
+              = text_field_tag 'application_form[notes]', user.application_form.notes
           
 :javascript
   $('select, input').change(function(){
@@ -27,7 +26,7 @@
     $.post($form.attr('action'), $form.serialize());
   })
   
-  $('input').keypress(function(k){
+  $('input').keydown(function(k){
     $form = $(this).closest('form');
     $.post($form.attr('action'), $form.serialize());
     if (k.which == 13) return false;

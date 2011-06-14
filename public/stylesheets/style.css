@@ -291,4 +291,9 @@ iframe { border:0;}
 
 #uniform-bank_account_pays_subscription, #uniform-bank_account_pays_subscription select { width:300px;}
 #uniform-bank_account_pays_subscription span { width:275px;}
-#pdf_content { background-color:#262626; text-align:center; padding:7px 5px 5px; margin-top:15px;} 
+#pdf_content { background-color:#262626; text-align:center; padding:7px 5px 5px; margin-top:15px;}
+
+table {width:720px;}
+thead{ text-transform:uppercase;}
+thead td {text-align:cfenter; padding:5px;}
+table input.text {width:100%; font-size:12px; margin:0; padding:5px;}
