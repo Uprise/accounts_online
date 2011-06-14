@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  if ($.browser.webkit) {
+    $('#print_button, #uniform-print_button').show();
+   }
+   
   function move_along($selector, limit, $next) {
     $selector.live('keydown', function(e) {
       if ($next == null) { $next = $(this).next(); }

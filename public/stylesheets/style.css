@@ -297,3 +297,7 @@ table {width:720px;}
 thead{ text-transform:uppercase;}
 thead td {text-align:cfenter; padding:5px;}
 table input.text {width:100%; font-size:12px; margin:0; padding:5px;}
+
+#print_button, #uniform-print_button {
+  display:none;
+}
