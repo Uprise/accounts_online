@@ -1,7 +1,5 @@
 $(document).ready(function(){
-  if ($.browser.webkit) {
-    $('#print_button, #uniform-print_button').show();
-   }
+  
    
   function move_along($selector, limit, $next) {
     $selector.live('keydown', function(e) {
@@ -50,4 +48,8 @@ $(document).ready(function(){
   // $('#pdf').load(function(){
   //   frames['pdf'].print()
   // })
+  
+  if($.browser.webkit) {
+    $('#print_button, #uniform-print_button').show();
+   }
 })

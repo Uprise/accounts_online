@@ -8,8 +8,52 @@
       %td Notes
   %tbody
     - @users.each do |user|
-      - if user.application_form
+      - if user.application_form && user.application_form.status != 'COMPLETE' && user.application_form.updated_at + 1.day <= user.application_form.created_at
       
+        %tr
+          %td= link_to "#{user.first_name} #{user.last_name}", "/admin/edit/#{user.application_form.id}"
+          %td= user.application_form.created_at.strftime "%d/%m/%y" 
+          %td
+            %form{ :action => "/application_forms/update_status/#{user.application_form.id}", :method => 'POST'}
+              = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Problem with forms', 'PROBLEM'], ['Forms complete', 'COMPLETE']], user.application_form.status)
+          %td
+            %form{ :action => "/application_forms/update_notes/#{user.application_form.id}", :method => 'POST'}
+              = text_field_tag 'application_form[notes]', user.application_form.notes
+              
+%h3 Change of form
+%table
+  %thead
+    %tr
+      %td Name
+      %td Date filed
+      %td Status
+      %td Notes
+  %tbody
+    - @users.each do |user|
+      - if user.application_form && user.application_form.status != 'COMPLETE' && user.application_form.updated_at + 1.day > user.application_form.created_at
+      
+        %tr
+          %td= link_to "#{user.first_name} #{user.last_name}", "/admin/edit/#{user.application_form.id}"
+          %td= user.application_form.created_at.strftime "%d/%m/%y" 
+          %td
+            %form{ :action => "/application_forms/update_status/#{user.application_form.id}", :method => 'POST'}
+              = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Problem with forms', 'PROBLEM'], ['Forms complete', 'COMPLETE']], user.application_form.status)
+          %td
+            %form{ :action => "/application_forms/update_notes/#{user.application_form.id}", :method => 'POST'}
+              = text_field_tag 'application_form[notes]', user.application_form.notes
+              
+%h3 Completed forms
+%table
+  %thead
+    %tr
+      %td Name
+      %td Date filed
+      %td Status
+      %td Notes
+  %tbody
+    - @users.each do |user|
+      - if user.application_form && user.application_form.status == 'COMPLETE'
+
         %tr
           %td= link_to "#{user.first_name} #{user.last_name}", "/admin/edit/#{user.application_form.id}"
           %td= user.application_form.created_at.strftime "%d/%m/%y" 
