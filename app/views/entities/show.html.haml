@@ -1,0 +1,21 @@
+%p= @entity.legal_name
+%p= @entity.trading_name
+
+- if @entity.application_forms.empty?
+  %p 
+    You need to complete an application form.
+    = link_to 'Click here to begin', new_user_entity_application_form_path(@user, @entity)
+- else
+  - @entity.application_forms.each do |application_form|
+    %table
+      %tr
+        %td Application Date
+        %td Application Type
+        %td Status
+      %tr
+        %td= application_form.created_at.strftime "%d/%m/%y"
+        %td= link_to application_form.print_type, edit_user_entity_application_form_path(@entity.user, @entity, application_form)
+        %td= application_form.print_status
+
+
+= link_to 'Return to entity list', @user

@@ -1,18 +1,33 @@
 AccountsOnline::Application.routes.draw do
-  get 'application_forms/second_step' => 'application_forms#optional_info', :as => 'second_step'
-  post 'application_forms/third_step' => 'application_forms#download', :as => 'third_step'
-  post 'application_forms/update_notes/:id' => 'application_forms#update_notes'
-  post 'application_forms/update_status/:id' => 'application_forms#update_status'
-  resources :application_forms
+  # get 'application_forms/second_step' => 'application_forms#optional_info', :as => 'second_step'
+  # post 'application_forms/third_step' => 'application_forms#download', :as => 'third_step'
+  # post 'application_forms/update_notes/:id' => 'application_forms#update_notes'
+  # post 'application_forms/update_status/:id' => 'application_forms#update_status'
+  
+  
+  resources :users, :only => [:show] do
+    resources :entities, :only => [:show, :create, :new, :edit, :update] do
+      resources :application_forms do
+        match 'view' => 'application_forms#show'
+        resources :contact_person
+        resources :accountant
+        resources :bank_accounts
+        resources :credit_cards
+        resources :barter_card
+        resources :addresses
+      end
+    end
+  end
 
   get "pdfs/:id(.:format)" => 'pdfs#show'
   
+  get "admin/export"
   get "admin/edit/:id" => 'admin#edit', :as => 'admin_edit'
   get "admin" => 'admin#home'
 
   get "pages/home"
 
-  devise_for :users
+  devise_for :users, :path => 'accounts'
   root :to => "pages#home"
   
   get 'pdf/:id(.:format)' => 'pdf#show'

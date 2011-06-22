@@ -10,43 +10,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110614222506) do
+ActiveRecord::Schema.define(:version => 20110621032617) do
 
-  create_table "application_forms", :force => true do |t|
-    t.integer  "user_id"
+  create_table "accountants", :force => true do |t|
+    t.string   "name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "partner"
+    t.string   "phone"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "trading_name"
-    t.string   "contact_name"
-    t.string   "physical_address_1"
-    t.string   "physical_address_2"
-    t.string   "physical_address_3"
-    t.string   "physical_postcode"
-    t.string   "postal_address_1"
-    t.string   "postal_address_2"
-    t.string   "postal_address_3"
-    t.string   "postal_postcode"
-    t.string   "industry"
-    t.string   "contact_business"
-    t.string   "contact_toll_free"
-    t.string   "contact_facsimile"
-    t.string   "contact_home"
-    t.string   "contact_mobile"
-    t.string   "contact_email"
-    t.string   "gst_number_1"
-    t.string   "accountant_name"
-    t.string   "accountant_address_1"
-    t.string   "accountant_address_2"
-    t.string   "accountant_partner"
-    t.string   "accountant_phone"
-    t.string   "accountant_email"
-    t.string   "legal_name"
-    t.string   "bartercard_account"
-    t.string   "bartercard_name"
-    t.string   "gst_number_2"
-    t.string   "gst_number_3"
+    t.integer  "application_form_id"
+  end
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "application_form_id"
+    t.string   "address_type"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "postcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "application_forms", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "notes"
     t.string   "status"
+    t.integer  "entity_id"
+    t.string   "type"
   end
 
   create_table "bank_accounts", :force => true do |t|
@@ -61,6 +56,53 @@ ActiveRecord::Schema.define(:version => 20110614222506) do
     t.string   "name"
     t.boolean  "needs_cheques"
     t.boolean  "pays_subscription"
+  end
+
+  create_table "bartercards", :force => true do |t|
+    t.string   "name"
+    t.string   "account_1"
+    t.string   "account_2"
+    t.string   "account_3"
+    t.string   "account_4"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "application_form_id"
+  end
+
+  create_table "contact_people", :force => true do |t|
+    t.string   "business_phone"
+    t.string   "toll_free_phone"
+    t.string   "facsimile"
+    t.string   "home_phone"
+    t.string   "mobile_phone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "application_form_id"
+  end
+
+  create_table "credit_cards", :force => true do |t|
+    t.integer  "application_form_id"
+    t.string   "name"
+    t.string   "account_1"
+    t.string   "account_2"
+    t.string   "account_3"
+    t.string   "account_4"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entities", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "legal_name"
+    t.string   "trading_name"
+    t.string   "industry"
+    t.string   "gst_number_1"
+    t.string   "gst_number_2"
+    t.string   "gst_number_3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|

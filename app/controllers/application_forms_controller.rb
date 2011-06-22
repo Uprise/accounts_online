@@ -2,22 +2,32 @@ class ApplicationFormsController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update, :show]
   
   def new
-    @application_form = ApplicationForm.new
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.application_forms.build
     @application_form.bank_accounts.build
+    @application_form.contact_person = ContactPerson.new
+    @application_form.addresses.build :address_type => 'POSTAL'
+    @application_form.addresses.build :address_type => 'PHYSICAL'
+    @application_form.accountant = Accountant.new
+    @application_form.bartercard = Bartercard.new
   end
   
   def create
-    @application_form = ApplicationForm.new(params[:application_form])
-    @application_form.user = current_user
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.application_forms.build(params[:application_form])
     if @application_form.save
-      session[:application_form] = @application_form.id
-      redirect_to second_step_path
+      redirect_to user_entity_application_form_path(@user, @entity, @application_form)
     else
       render 'new'
     end
   end
   
   def edit
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.application_forms.find(params[:id])
   end
   
   def update
@@ -25,7 +35,7 @@ class ApplicationFormsController < ApplicationController
       if current_user.admin?
         redirect_to admin_path
       else
-        redirect_to second_step_path
+        redirect_to user_entity_application_form_path(@user, @entity, @application_form)
       end
     else
       @title = "Edit user"
@@ -84,8 +94,8 @@ class ApplicationFormsController < ApplicationController
   
   private
     def correct_user
-      @application_form = ApplicationForm.find(params[:id])
+      @application_form = ApplicationForm.find(params[:application_form_id])
       return if current_user == User.first || current_user == User.last
-      redirect_to root_path unless current_user == @application_form.user
+      redirect_to root_path unless current_user == @application_form.entity.user
     end
 end

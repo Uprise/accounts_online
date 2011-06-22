@@ -10,6 +10,9 @@ gem "jquery-rails"
 gem "heroku"
 gem "wicked_pdf", :git => 'git://github.com/mileszs/wicked_pdf.git'
 gem "nested_form", :git => 'git://github.com/SebastianEdwards/nested_form.git'
+gem 'spreadsheet'
+gem 'excel_rails'
+gem 'annotate', :group => :development
 
 group :development, :test do
 	gem "cucumber-rails"

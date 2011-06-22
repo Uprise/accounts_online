@@ -263,7 +263,7 @@ input{
   padding:10px;
 }
 
-.fields {
+.fields, .action {
   margin-bottom:10px;
   clear:both;
 }
@@ -285,7 +285,7 @@ br {
 iframe { border:0;}
 #MoSTContent{ background:#ccc;}
 
-#application_form_gst_number_1, #application_form_gst_number_2, #application_form_gst_number_3 {width:31px;}
+#entity_gst_number_1, #entity_gst_number_2, #entity_gst_number_3 {width:31px;}
 
 .gst_number.right { float:left; margin-left:37px; }
 
@@ -297,6 +297,8 @@ table {width:720px;}
 thead{ text-transform:uppercase;}
 thead td {text-align:cfenter; padding:5px;}
 table input.text, input.small_input {width:150px !important; font-size:12px !important; margin:0 !important; padding:5px !important;}
+
+.fields .credit_card_fields input { width:43px; }
 
 #print_button, #uniform-print_button {
   display:none;

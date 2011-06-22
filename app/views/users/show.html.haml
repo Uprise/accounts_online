@@ -1,0 +1,21 @@
+%p
+  = "Hi #{@user.first_name}. The email we have on file for you is: #{@user.email}."
+  = link_to "Click here to edit", edit_user_registration_path
+
+%table
+  %tr
+    %td Legal name
+    %td Trading name
+    %td Industry
+    %td GST number
+    %td
+  - @user.entities.each do |entity|
+    %tr
+      %td= link_to entity.legal_name, user_entity_path(@user, entity)
+      %td= entity.trading_name
+      %td= entity.industry
+      %td= entity.gst_number
+      %td= link_to 'Edit', edit_user_entity_path(@user, entity)
+
+= link_to "New entity", new_user_entity_path(params[:id])
+= link_to "Logout", destroy_user_session_path

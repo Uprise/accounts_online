@@ -1,53 +1,71 @@
 class ApplicationForm < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :entity
   has_many :bank_accounts
+  has_many :credit_cards
+  has_many :addresses
+  has_one :bartercard
+  has_one :contact_person
+  has_one :accountant
+
+  accepts_nested_attributes_for :contact_person
+  accepts_nested_attributes_for :accountant
+  accepts_nested_attributes_for :addresses
   accepts_nested_attributes_for :bank_accounts, :allow_destroy => true
-  attr_accessible :legal_name, :trading_name, :contact_name, :physical_address_1, :physical_address_2, :physical_address_3, 
-                  :physical_postcode, :postal_address_1, :postal_address_2, :postal_address_3, :postal_postcode,
-                  :industry, :contact_business, :contact_toll_free, :contact_facsimile, :contact_home, :contact_mobile,
-                  :contact_email, :gst_number_1, :gst_number_2, :gst_number_3, :accountant_name, :accountant_address_1, :accountant_address_2, :accountant_partner, 
-                  :accountant_phone, :accountant_email, :bank_accounts_attributes, :bartercard_account, :bartercard_name, :status, :notes
-                  
-  validates :legal_name,            :presence     =>  true
-  validates :trading_name,          :presence     =>  true
-  validates :contact_name,          :presence     =>  true
-  validates :industry,              :presence     =>  true
-  validates :gst_number_1,          :length       =>  { :is => 3 }
-  validates :gst_number_2,          :length       =>  { :is => 3 }
-  validates :gst_number_3,          :length       =>  { :is => 3 }
+  accepts_nested_attributes_for :credit_cards, :allow_destroy => true
+  accepts_nested_attributes_for :bartercard
+
+  attr_accessible :contact_person_attributes, :addresses_attributes, :accountant_attributes, :bank_accounts_attributes, :credit_cards_attributes, :bartercard_attributes, :status, :notes, :type
   
-  validates :physical_address_1,    :presence     =>  true
-  validates :physical_address_2,    :presence     =>  true
-  validates :physical_address_3,    :presence     =>  true
-  validates :physical_postcode,     :presence     =>  true
+  validates :contact_person,  :presence     =>  true
+  validates :accountant,      :presence     =>  true
+  validates :bank_accounts,   :length       =>  { :in => 1..3 }
+  validates :addresses,       :length       =>  { :is => 2 }
+  validates :type,            :inclusion    =>  { :in => %w( SIGNUP CHANGE_BANKLINK CHANGE_BANK_ACCOUNTS ) }
+  validates :status,          :inclusion    =>  { :in => %w( WAITING INCOMPLETE COMPLETE ) }
   
-  validates :postal_address_1,      :presence     =>  true
-  validates :postal_address_2,      :presence     =>  true
-  validates :postal_address_3,      :presence     =>  true
-  validates :postal_postcode,       :presence     =>  true
-  
-  validates :contact_business,      :presence     =>  true
-  validates :contact_toll_free,     :presence     =>  true
-  validates :contact_facsimile,     :presence     =>  true
-  validates :contact_home,          :presence     =>  true
-  validates :contact_mobile,        :presence     =>  true
-  validates :contact_email,         :presence     =>  true
-  
-  validates :accountant_name,       :presence     =>  true
-  validates :accountant_address_1,  :presence     =>  true
-  validates :accountant_address_2,  :presence     =>  true
-  validates :accountant_partner,    :presence     =>  true
-  validates :accountant_phone,      :presence     =>  true
-  validates :accountant_email,      :presence     =>  true
-   
-  validates :bank_accounts,         :length       =>  { :in => 1..3 }
-  
-  validates :bartercard_name,       :presence     =>  { :unless => Proc.new { |a| a.bartercard_account.blank? } }
-  validates :bartercard_account,    :length       =>  { :is     => 16, 
-                                                        :unless => Proc.new { |a| a.bartercard_name.blank? }  }
-                                                        
-  def gst_number
-    "#{self.gst_number_1}#{self.gst_number_2}#{self.gst_number_3}"
+  def physical
+    self.addresses.detect {|i| i.address_type == 'PHYSICAL'}
   end
   
+  def postal
+    self.addresses.detect {|i| i.address_type == 'POSTAL'}
+  end
+  
+  def type 
+    @type ||= "SIGNUP"
+  end
+  
+  def print_type
+    case self.type
+      when "SIGNUP" then "Sign up forms"
+      when "CHANGE_BANKLINK" then "Changing Banklink"
+      when "CHANGE_BANK_ACCOUNTS" then "Changing bank accounts"
+    end
+  end
+  
+  def status 
+    @status ||= "WAITING"
+  end
+  
+  def print_status
+    case self.status
+      when "WAITING" then "Waiting to recieve forms"
+      when "INCOMPLETE" then "Forms are incomplete"
+      when "COMPLETE" then "Forms are completed"
+    end
+  end
 end
+
+# == Schema Information
+#
+# Table name: application_forms
+#
+#  id         :integer         not null, primary key
+#  created_at :datetime
+#  updated_at :datetime
+#  notes      :string(255)
+#  status     :string(255)
+#  entity_id  :integer
+#  type       :string(255)
+#
+

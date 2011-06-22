@@ -1,24 +1,24 @@
 <%= image_tag 'pages/one.jpg' %>
 <div id="page-two">
   <%= image_tag 'pages/two.jpg' %>
-  <p class="field" id="legal-name"><%= @application_form.legal_name %></p>
-  <p class="field" id="trading-name"><%= @application_form.trading_name %></p>
-  <p class="field" id="contact-name"><%= @application_form.contact_name %></p>
-  <p class="field" id="physical-address-1"><%= @application_form.physical_address_1 %></p>
-  <p class="field" id="physical-address-2"><%= @application_form.physical_address_2 %></p>
-  <p class="field" id="physical-address-3"><%= @application_form.physical_address_3 %></p>
-  <p class="field" id="physical-postcode"><%= @application_form.physical_postcode %></p>
-  <p class="field" id="postal-address-1"><%= @application_form.postal_address_1 %></p>
-  <p class="field" id="postal-address-2"><%= @application_form.postal_address_2 %></p>
-  <p class="field" id="postal-address-3"><%= @application_form.postal_address_3 %></p>
-  <p class="field" id="postal-postcode"><%= @application_form.physical_postcode %></p>
-  <p class="field" id="industry"><%= @application_form.industry %></p>
-  <p class="field" id="contact-business"><%= @application_form.contact_business %></p>
-  <p class="field" id="contact-toll-free"><%= @application_form.contact_toll_free %></p>
-  <p class="field" id="contact-facsimile"><%= @application_form.contact_facsimile %></p>
-  <p class="field" id="contact-home"><%= @application_form.contact_home %></p>
-  <p class="field" id="contact-mobile"><%= @application_form.contact_mobile %></p>
-  <p class="field" id="contact-email"><%= @application_form.contact_email %></p>
+  <p class="field" id="legal-name"><%= @application_form.entity.legal_name %></p>
+  <p class="field" id="trading-name"><%= @application_form.entity.trading_name %></p>
+  <p class="field" id="contact-name"><%= @application_form.contact_person.name %></p>
+  <p class="field" id="physical-address-1"><%= @application_form.physical.address_1 %></p>
+  <p class="field" id="physical-address-2"><%= @application_form.physical.address_2 %></p>
+  <p class="field" id="physical-address-3"><%= @application_form.physical.address_3 %></p>
+  <p class="field" id="physical-postcode"><%= @application_form.physical.postcode %></p>
+  <p class="field" id="postal-address-1"><%= @application_form.postal.address_1 %></p>
+  <p class="field" id="postal-address-2"><%= @application_form.postal.address_2 %></p>
+  <p class="field" id="postal-address-3"><%= @application_form.postal.address_3 %></p>
+  <p class="field" id="postal-postcode"><%= @application_form.physical.postcode %></p>
+  <p class="field" id="industry"><%= @application_form.entity.industry %></p>
+  <p class="field" id="contact-business"><%= @application_form.contact_person.business_phone %></p>
+  <p class="field" id="contact-toll-free"><%= @application_form.contact_person.toll_free_phone %></p>
+  <p class="field" id="contact-facsimile"><%= @application_form.contact_person.facsimile %></p>
+  <p class="field" id="contact-home"><%= @application_form.contact_person.home_phone %></p>
+  <p class="field" id="contact-mobile"><%= @application_form.contact_person.mobile_phone %></p>
+  <p class="field" id="contact-email"><%= @application_form.contact_person.email %></p>
   <p class="field" id="bank-account-1-bank"><span><%= @ba1.bank[0] %></span><span><%= @ba1.bank[1] %></span></p>
   <p class="field" id="bank-account-1-branch"><span><%= @ba1.branch[0] %></span><span><%= @ba1.branch[1] %></span><span><%= @ba1.branch[2] %></span><span><%= @ba1.branch[3] %></span></p>
   <p class="field" id="bank-account-1-account"><span><%= @ba1.account[0] %></span><span><%= @ba1.account[1] %></span><span><%= @ba1.account[2] %></span><span><%= @ba1.account[3] %></span><span><%= @ba1.account[4] %></span><span><%= @ba1.account[5] %></span><span><%= @ba1.account[6] %></span></p>
@@ -31,23 +31,23 @@
   <p class="field" id="bank-account-3-branch"><span><%= @ba3.branch[0] %></span><span><%= @ba3.branch[1] %></span><span><%= @ba3.branch[2] %></span><span><%= @ba3.branch[3] %></span></p>
   <p class="field" id="bank-account-3-account"><span><%= @ba3.account[0] %></span><span><%= @ba3.account[1] %></span><span><%= @ba3.account[2] %></span><span><%= @ba3.account[3] %></span><span><%= @ba3.account[4] %></span><span><%= @ba3.account[5] %></span><span><%= @ba3.account[6] %></span></p>
   <p class="field" id="bank-account-3-suffix"><span><%= @ba3.suffix[0] %></span><span><%= @ba3.suffix[1] %></span><span><%= @ba3.suffix[2] %></span></p>
-  <p class="field" id="gst-number-1"><span><%= @application_form.gst_number[0] %></span><span><%= @application_form.gst_number[1] %></span><span><%= @application_form.gst_number[2] %></span></p>
-  <p class="field" id="gst-number-2"><span><%= @application_form.gst_number[3] %></span><span><%= @application_form.gst_number[4] %></span><span><%= @application_form.gst_number[5] %></span></p>
-  <p class="field" id="gst-number-3"><span><%= @application_form.gst_number[6] %></span><span><%= @application_form.gst_number[7] %></span><span><%= @application_form.gst_number[8] %></span></p>
-  <p class="field" id="accountant-name"><%= @application_form.accountant_name %></p>
-  <p class="field" id="accountant-address-1"><%= @application_form.accountant_address_1 %></p>
-  <p class="field" id="accountant-address-2"><%= @application_form.accountant_address_2 %></p>
-  <p class="field" id="accountant-partner"><%= @application_form.accountant_partner %></p>
-  <p class="field" id="accountant-phone"><%= @application_form.accountant_phone %></p>
-  <p class="field" id="accountant-email"><%= @application_form.accountant_email %></p>
+  <p class="field" id="gst-number-1"><span><%= @application_form.entity.gst_number[0] %></span><span><%= @application_form.entity.gst_number[1] %></span><span><%= @application_form.entity.gst_number[2] %></span></p>
+  <p class="field" id="gst-number-2"><span><%= @application_form.entity.gst_number[3] %></span><span><%= @application_form.entity.gst_number[4] %></span><span><%= @application_form.entity.gst_number[5] %></span></p>
+  <p class="field" id="gst-number-3"><span><%= @application_form.entity.gst_number[6] %></span><span><%= @application_form.entity.gst_number[7] %></span><span><%= @application_form.entity.gst_number[8] %></span></p>
+  <p class="field" id="accountant-name"><%= @application_form.accountant.name %></p>
+  <p class="field" id="accountant-address-1"><%= @application_form.accountant.address_1 %></p>
+  <p class="field" id="accountant-address-2"><%= @application_form.accountant.address_2 %></p>
+  <p class="field" id="accountant-partner"><%= @application_form.accountant.partner %></p>
+  <p class="field" id="accountant-phone"><%= @application_form.accountant.phone %></p>
+  <p class="field" id="accountant-email"><%= @application_form.accountant.email %></p>
 </div>
 <div id="page-three">
   <%= image_tag 'pages/three.jpg' %>
   <p class="field" id="date"><%= Time.now.strftime('%d / %m / %y') %></p>
-  <p class="field" id="name"><%= @application_form.contact_name %></p>
-  <p class="field" id="address-1"><%= @application_form.postal_address_1 %></p>
-  <p class="field" id="address-2"><%= @application_form.postal_address_2 %></p>
-  <p class="field" id="address-3"><%= @application_form.postal_address_3 %></p>
+  <p class="field" id="name"><%= @application_form.contact_person.name %></p>
+  <p class="field" id="address-1"><%= @application_form.postal.address_1 %></p>
+  <p class="field" id="address-2"><%= @application_form.postal.address_2 %></p>
+  <p class="field" id="address-3"><%= @application_form.postal.address_3 %></p>
   <p class="field" id="subscription-ex-gst">43.00</p>
   <p class="field" id="subscription-in-gst">49.45</p>
   <p class="field" id="number-of-accounts">3</p>
@@ -73,7 +73,7 @@
   <p class="field" id="date-day"><%= Time.now.day %></p>
   <p class="field" id="date-month"><%= Time.now.strftime('%B') %></p>
   <p class="field" id="date-year"><%= Time.now.strftime('%y') %></p>
-  <p class="field" id="name"><%= @application_form.contact_name %></p>
+  <p class="field" id="name"><%= @application_form.contact_person.name %></p>
 </div>
 <% @application_form.bank_accounts.each do |a| %>
   <% if a.needs_cheques %>
@@ -82,10 +82,10 @@
       <p class="field" id="date-day"><%= Time.now.day %></p>
       <p class="field" id="date-month"><%= Time.now.month %></p>
       <p class="field" id="date-year"><%= Time.now.year %></p>
-      <p class="field" id="name"><%= @application_form.contact_name %></p>
-      <p class="field" id="address-1"><%= @application_form.postal_address_1 %></p>
-      <p class="field" id="address-2"><%= @application_form.postal_address_2 %></p>
-      <p class="field" id="address-3"><%= @application_form.postal_address_3 %></p>
+      <p class="field" id="name"><%= @application_form.contact_person.name %></p>
+      <p class="field" id="address-1"><%= @application_form.postal.address_1 %></p>
+      <p class="field" id="address-2"><%= @application_form.postal.address_2 %></p>
+      <p class="field" id="address-3"><%= @application_form.postal.address_3 %></p>
       <p class="field" id="bank-account-bank"><span><%= a.bank[0] %></span><span><%= a.bank[1] %></span></p>
       <p class="field" id="bank-account-branch"><span><%= a.branch[0] %></span><span><%= a.branch[1] %></span><span><%= a.branch[2] %></span><span><%= a.branch[3] %></span></p>
       <p class="field" id="bank-account-account"><span><%= a.account[0] %></span><span><%= a.account[1] %></span><span><%= a.account[2] %></span><span><%= a.account[3] %></span><span><%= a.account[4] %></span><span><%= a.account[5] %></span><span><%= a.account[6] %></span></p>
@@ -108,11 +108,11 @@
     </div>
   <% end %>
 <% end %>
-<% unless @ba1.pays_subscription || @ba2.pays_subscription || @ba3.pays_subscription %>
+<% unless @ba1.pays_subscription || @ba2.pays_subscription || @ba3.pays_subscription || true %>
   <div id="page-seven">
     <%= image_tag 'pages/seven.jpg' %>
-    <p class="field" id="bartercard-name"><%= @application_form.bartercard_name %></p>
-    <p class="field" id="bartercard-account-start"><span><%= @application_form.bartercard_account[8] %></span><span><%= @application_form.bartercard_account[9] %></span><span><%= @application_form.bartercard_account[10] %></span><span><%= @application_form.bartercard_account[11] %></span></p>
-    <p class="field" id="bartercard-account-end"><span><%= @application_form.bartercard_account[12] %></span><span><%= @application_form.bartercard_account[13] %></span><span><%= @application_form.bartercard_account[14] %></span><span><%= @application_form.bartercard_account[15] %></span></p>
+    <p class="field" id="bartercard-name"><%= @application_form.bartercard.name %></p>
+    <p class="field" id="bartercard-account-start"><span><%= @application_form.bartercard.account[8] %></span><span><%= @application_form.bartercard_account[9] %></span><span><%= @application_form.bartercard.account[10] %></span><span><%= @application_form.bartercard.account[11] %></span></p>
+    <p class="field" id="bartercard-account-end"><span><%= @application_form.bartercard.account[12] %></span><span><%= @application_form.bartercard.account[13] %></span><span><%= @application_form.bartercard.account[14] %></span><span><%= @application_form.bartercard.account[15] %></span></p>
   </div>
 <% end %>
