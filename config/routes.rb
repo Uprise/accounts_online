@@ -8,7 +8,7 @@ AccountsOnline::Application.routes.draw do
   resources :users, :only => [:show] do
     resources :entities, :only => [:show, :create, :new, :edit, :update] do
       resources :application_forms do
-        match 'view' => 'application_forms#show'
+        match 'view' => 'application_forms#view'
         resources :contact_person
         resources :accountant
         resources :bank_accounts

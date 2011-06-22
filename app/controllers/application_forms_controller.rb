@@ -43,7 +43,7 @@ class ApplicationFormsController < ApplicationController
     end
   end
   
-  def show
+  def view
     @ba1 = @application_form.bank_accounts[0] ? @application_form.bank_accounts[0] : BankAccount.new
     @ba2 = @application_form.bank_accounts[1] ? @application_form.bank_accounts[1] : BankAccount.new
     @ba3 = @application_form.bank_accounts[2] ? @application_form.bank_accounts[2] : BankAccount.new
@@ -57,12 +57,17 @@ class ApplicationFormsController < ApplicationController
     end
   end
   
-  def optional_info
-    @application_form = current_user.application_form
+  def show
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.application_forms.find(params[:id])
   end
   
-  def download
-    @application_form = current_user.application_form
+  def print
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.application_forms.find(params[:id])
+    
     redirect_to second_step_path if params[:bank_account][:pays_subscription].blank?
     @application_form.bank_accounts.each {|a| a.update_attribute :pays_subscription, false}
     pays_subcription = params[:bank_account][:pays_subscription]
@@ -94,7 +99,12 @@ class ApplicationFormsController < ApplicationController
   
   private
     def correct_user
-      @application_form = ApplicationForm.find(params[:application_form_id])
+      raise 'what'
+      if params[:application_form_id].exists?
+        @application_form = ApplicationForm.find(params[:application_form_id])
+      else
+        @application_form = ApplicationForm.find(params[:id])
+      end
       return if current_user == User.first || current_user == User.last
       redirect_to root_path unless current_user == @application_form.entity.user
     end
