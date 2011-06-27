@@ -28,7 +28,11 @@ class EntitiesController < ApplicationController
     @user = User.find(params[:user_id])
     @entity = @user.entities.find(params[:id])
     if @entity.update_attributes(params[:entity])
-      redirect_to user_entity_path(@user, @entity), :flash => { :success => "Entity updated." }
+      if current_user.admin?
+        redirect_to user_path(current_user)
+      else
+        redirect_to user_entity_path(@user, @entity), :flash => { :success => "Entity updated." }
+      end
     else
       render 'edit'
     end

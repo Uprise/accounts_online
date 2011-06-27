@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me, :admin?
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -33,5 +34,7 @@ end
 #  first_name           :string(255)
 #  last_name            :string(255)
 #  admin                :boolean
+#  associate            :boolean
+#  associate_id         :integer
 #
 

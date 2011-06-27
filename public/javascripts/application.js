@@ -1,20 +1,19 @@
 $(document).ready(function(){
-  
-   
-  function move_along($selector, limit, $next) {
+  function move_along($selector, limit, $next_param) {
     $selector.live('keydown', function(e) {
-      if ($next == null) { $next = $(this).next(); }
+      if ($next_param == null) { $next = $(this).closest('.field').next().find('input'); if($next.length == 0) $next = $(this).closest('.field').parent().next().find('input'); }
+      else { $next = $(this).closest('.field').find($next_param); }
       if( e.which != 8 && $(this).val().length >= limit ) $next.focus()
     });
   }
 
-		move_along($('input.bank'), 2)
-		move_along($('input.branch'), 4)
-		move_along($('input.account'), 7)
-		move_along($('input.suffix'), 3, $('input.suffix').parent().next().find('input:visible').first())
-		move_along($('#application_form_gst_number_1'), 3)
-		move_along($('#application_form_gst_number_2'), 3)
-		move_along($('#application_form_gst_number_3'), 3, $('#application_form_contact_name'))
+		move_along($('input.bank'), 2, 'input.branch')
+		move_along($('input.branch'), 4, 'input.account')
+		move_along($('input.account'), 7, 'input.suffix')
+		move_along($('input.suffix'), 3)
+		move_along($('#entity_gst_number_1'), 3, '#entity_gst_number_2')
+		move_along($('#entity_gst_number_2'), 3, '#entity_gst_number_3')
+		move_along($('#entity_gst_number_3'), 3)
 	
     $("input, input[type=submit], select").uniform();
   	

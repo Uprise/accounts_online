@@ -73,6 +73,7 @@
 
   = f.fields_for :addresses, @application_form.postal do |postal|
     %h3 Postal Address
+    = postal.hidden_field :address_type
     .field.checker_selector
       = check_box_tag 'same-address'
       = label_tag 'same-address', 'Same as physical address'
@@ -102,6 +103,9 @@
         = bank_account_fields.text_field :account, :class => 'account'
         = bank_account_fields.text_field :suffix, :class => 'suffix'
       .field.left
+        = bank_account_fields.label :number_of_transactions, 'On average how many transactions per month?'
+        = bank_account_fields.text_field :number_of_transactions
+      .field.right.needs_cheques
         = bank_account_fields.check_box :needs_cheques
         = bank_account_fields.label :needs_cheques, 'Does this account need encoded cheques?'
       .action.right

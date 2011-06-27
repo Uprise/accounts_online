@@ -1,5 +1,5 @@
-%p= @entity.legal_name
-%p= @entity.trading_name
+= link_to 'Return to entity list', @user
+%h1= "Request forms for #{@entity.trading_name}"
 
 - if @entity.application_forms.empty?
   %p 
@@ -12,10 +12,10 @@
         %td Application Date
         %td Application Type
         %td Status
+        %td
       %tr
         %td= application_form.created_at.strftime "%d/%m/%y"
-        %td= link_to application_form.print_type, edit_user_entity_application_form_path(@entity.user, @entity, application_form)
+        %td= link_to application_form.print_form_type, user_entity_application_form_path(@user, @entity, application_form)
         %td= application_form.print_status
-
-
-= link_to 'Return to entity list', @user
+        %td= link_to 'Edit form', edit_user_entity_application_form_path(@entity.user, @entity, application_form)
+        

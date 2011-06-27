@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621032617) do
+ActiveRecord::Schema.define(:version => 20110626234550) do
 
   create_table "accountants", :force => true do |t|
     t.string   "name"
@@ -41,7 +41,12 @@ ActiveRecord::Schema.define(:version => 20110621032617) do
     t.string   "notes"
     t.string   "status"
     t.integer  "entity_id"
-    t.string   "type"
+    t.string   "form_type"
+    t.decimal  "set_up_hours"
+    t.decimal  "set_up_rate"
+    t.decimal  "data_entry_hours"
+    t.decimal  "data_entry_rate"
+    t.decimal  "travel_cost"
   end
 
   create_table "bank_accounts", :force => true do |t|
@@ -56,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110621032617) do
     t.string   "name"
     t.boolean  "needs_cheques"
     t.boolean  "pays_subscription"
+    t.integer  "number_of_transactions"
   end
 
   create_table "bartercards", :force => true do |t|
@@ -130,6 +136,8 @@ ActiveRecord::Schema.define(:version => 20110621032617) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "admin"
+    t.boolean  "associate"
+    t.integer  "associate_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

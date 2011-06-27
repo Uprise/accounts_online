@@ -296,10 +296,14 @@ iframe { border:0;}
 table {width:720px;}
 thead{ text-transform:uppercase;}
 thead td {text-align:cfenter; padding:5px;}
-table input.text, input.small_input {width:150px !important; font-size:12px !important; margin:0 !important; padding:5px !important;}
+table.admin input.text, input.small_input {width:150px !important; font-size:12px !important; margin:0 !important; padding:5px !important;}
 
 .fields .credit_card_fields input { width:43px; }
 
 #print_button, #uniform-print_button {
   display:none;
 }
+
+.field.needs_cheques { padding-top:28px;}
+
+table.pricing input.text{ padding:0; width:50px; font-size: 13px;}

@@ -33,12 +33,11 @@ class ApplicationFormsController < ApplicationController
   def update
     if @application_form.update_attributes(params[:application_form])
       if current_user.admin?
-        redirect_to admin_path
+        redirect_to user_path(current_user)
       else
         redirect_to user_entity_application_form_path(@user, @entity, @application_form)
       end
     else
-      @title = "Edit user"
       render 'edit'
     end
   end
@@ -80,7 +79,9 @@ class ApplicationFormsController < ApplicationController
   end
   
   def update_notes
-    @application_form = ApplicationForm.find(params[:id])
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.application_forms.find(params[:application_form_id])
     unless @application_form.update_attributes(params[:application_form])
       raise "Unable to update notes"
     end
@@ -89,7 +90,9 @@ class ApplicationFormsController < ApplicationController
   end
   
   def update_status
-    @application_form = ApplicationForm.find(params[:id])
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.application_forms.find(params[:application_form_id])
     unless @application_form.update_attributes(params[:application_form])
       raise "Unable to update notes"
     end
@@ -99,11 +102,14 @@ class ApplicationFormsController < ApplicationController
   
   private
     def correct_user
-      raise 'what'
-      if params[:application_form_id].exists?
-        @application_form = ApplicationForm.find(params[:application_form_id])
+      if params.key?(:application_form_id)
+        @user = User.find(params[:user_id])
+        @entity = @user.entities.find(params[:entity_id])
+        @application_form = @entity.application_forms.find(params[:application_form_id])
       else
-        @application_form = ApplicationForm.find(params[:id])
+        @user = User.find(params[:user_id])
+        @entity = @user.entities.find(params[:entity_id])
+        @application_form = @entity.application_forms.find(params[:id])
       end
       return if current_user == User.first || current_user == User.last
       redirect_to root_path unless current_user == @application_form.entity.user

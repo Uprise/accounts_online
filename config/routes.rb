@@ -9,12 +9,8 @@ AccountsOnline::Application.routes.draw do
     resources :entities, :only => [:show, :create, :new, :edit, :update] do
       resources :application_forms do
         match 'view' => 'application_forms#view'
-        resources :contact_person
-        resources :accountant
-        resources :bank_accounts
-        resources :credit_cards
-        resources :barter_card
-        resources :addresses
+        match 'update_notes' => 'application_forms#update_notes'
+        match 'update_status' => 'application_forms#update_status'
       end
     end
   end

@@ -4,6 +4,7 @@ describe User do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -23,5 +24,7 @@ end
 #  first_name           :string(255)
 #  last_name            :string(255)
 #  admin                :boolean
+#  associate            :boolean
+#  associate_id         :integer
 #
 

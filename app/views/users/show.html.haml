@@ -1,21 +1,63 @@
-%p
-  = "Hi #{@user.first_name}. The email we have on file for you is: #{@user.email}."
-  = link_to "Click here to edit", edit_user_registration_path
-
-%table
-  %tr
-    %td Legal name
-    %td Trading name
-    %td Industry
-    %td GST number
-    %td
-  - @user.entities.each do |entity|
+- if current_user.admin? || current_user.associate?
+  %h1= "Welcome #{current_user.first_name}"
+  %p These items require your attention:
+  
+  %table.admin
     %tr
-      %td= link_to entity.legal_name, user_entity_path(@user, entity)
-      %td= entity.trading_name
-      %td= entity.industry
-      %td= entity.gst_number
-      %td= link_to 'Edit', edit_user_entity_path(@user, entity)
+      %td Date filed
+      %td Trading name
+      %td Form type
+      %td Status
+      %td Notes
+      %td
+      %td
+      %td
+    - @application_forms.each do |application_form|
+      %tr
+        %td= application_form.created_at.strftime "%d/%m/%y" 
+        %td= application_form.entity.trading_name
+        %td= application_form.print_form_type
+        %td
+          %form{ :action => application_form_update_status_path(application_form.entity.user, application_form.entity, application_form), :method => 'POST'}
+            = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Forms incomplete', 'INCOMPLETE'], ['Forms complete', 'COMPLETE']], application_form.status)
+        %td
+          %form{ :action => application_form_update_notes_path(application_form.entity.user, application_form.entity, application_form), :method => 'POST'}
+            = text_field_tag 'application_form[notes]', application_form.notes
+        %td= link_to 'Edit form', edit_user_entity_application_form_path(application_form.entity.user, application_form.entity, application_form)
+        %td= link_to 'Edit entity', edit_user_entity_path(application_form.entity.user, application_form.entity)
+        %td= link_to 'Finalize pricing', user_entity_application_form_path(application_form.entity.user, application_form.entity, application_form)
+        
+  :javascript
+    $('select, input').change(function(){
+      $form = $(this).closest('form');
+      $.post($form.attr('action'), $form.serialize());
+    })
 
-= link_to "New entity", new_user_entity_path(params[:id])
-= link_to "Logout", destroy_user_session_path
+    $('input').keydown(function(k){
+      $form = $(this).closest('form');
+      $.post($form.attr('action'), $form.serialize());
+      if (k.which == 13) return false;
+    })
+  
+- else
+  %p
+    = "Hi #{@user.first_name}. The email we have on file for you is: #{@user.email}."
+    = link_to "Click here to edit", edit_user_registration_path
+
+  %table
+    %tr
+      %td Legal name
+      %td Trading name
+      %td Industry
+      %td GST number
+      %td
+    - @user.entities.each do |entity|
+      %tr
+        %td= link_to entity.legal_name, user_entity_path(@user, entity)
+        %td= entity.trading_name
+        %td= entity.industry
+        %td= entity.gst_number
+        %td= link_to 'Edit', edit_user_entity_path(@user, entity)
+
+  %p= link_to "New entity", new_user_entity_path(params[:id])
+  %p= link_to "Logout", destroy_user_session_path

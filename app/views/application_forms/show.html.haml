@@ -1,0 +1,58 @@
+- if current_user.admin?
+  %h1 Finalize pricing
+  %p Manage the pricing here
+  
+  = form_for [@user, @entity, @application_form] do |f|
+    = f.hidden_field :connection_fees
+    %table.pricing
+      %tr
+        %td
+          Connection Fees
+        %td
+          = "#{pluralize @application_form.bank_accounts.count, 'account'} x $20"
+        %td
+          = "$#{@application_form.connection_fees}"
+      %tr
+        %td
+          Set Up & Training
+        %td
+          = f.text_field :set_up_hours
+          hours
+          x $
+          = f.text_field :set_up_rate
+        %td#set_up_total
+      %tr
+        %td
+          Historical Data Entry
+        %td
+          = f.text_field :data_entry_hours
+          hours
+          x $
+          = f.text_field :data_entry_rate
+        %td#data_entry_total
+      %tr
+        %td
+          Travel
+        %td
+          Rental Car and Accommodation
+        %td
+          $
+          = f.text_field :travel_cost
+      %tr
+        %td
+          Estimate (Invoice based on actual time)
+        %td
+        %td#estimate_total
+    = f.submit
+  
+    :javascript
+      $('#application_form_set_up_hours, #application_form_set_up_rate').change(function(){ $('#set_up_total').text('$' + ($('#application_form_set_up_hours').val() * $('#application_form_set_up_rate').val())) })
+      $('#application_form_data_entry_hours, #application_form_data_entry_rate').change(function(){ $('#data_entry_total').text('$' + ($('#application_form_data_entry_hours').val() * $('#application_form_data_entry_rate').val())) })
+      
+      $('#application_form_data_entry_hours, #application_form_data_entry_rate, #application_form_set_up_hours, #application_form_set_up_rate, #application_form_travel_cost').change(function(){ $('#estimate_total').text('$' + (($('#application_form_data_entry_hours').val() * $('#application_form_data_entry_rate').val()) + ($('#application_form_set_up_hours').val() * $('#application_form_set_up_rate').val()) + $('#application_form_travel_cost').val() * 1)) })
+      
+      $('#application_form_set_up_hours, #application_form_data_entry_hours').trigger('change');
+  
+- else
+  %h1 Thank you
+  %p We'll be in touch soon
