@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Accounts Online</title>
-  <%= stylesheet_link_tag 'style', 'uniform.default', :media => :screen %>
+  <%= stylesheet_link_tag 'style', 'uniform.default', 'jquery-ui-1.8.14.custom', :media => :screen %>
   <%= stylesheet_link_tag 'print', :media => :print %>
   <!--[if IE]>
   <%= stylesheet_link_tag 'ie' %>
   <![endif]-->
-  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'uniform.min', 'application' %>
+  <%= javascript_include_tag 'jquery', 'rails', 'nested_form', 'uniform.min', 'jquery-ui.min', 'application' %>
   <%= csrf_meta_tag %>
 </head>
 <body>

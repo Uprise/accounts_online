@@ -1,18 +1,33 @@
+- if @entity.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@entity.errors.count, "error")
+      prohibited this user from being saved:
+    %p There were problems with the following fields:
+    %ul
+    - @entity.errors.full_messages.each do |message|
+      %li= message
+
 = form_for [@user, @entity] do |f|
   #business.fields
     .field.left
-      = f.label :legal_name, 'Legal Name'
+      = f.label :legal_name
       = f.text_field :legal_name
     .field.right
-      = f.label :trading_name, 'Trading Name'
+      = f.label :trading_name
       = f.text_field :trading_name
     .field.left
-      = f.label :industry, 'Industry'
+      = f.label :industry
       = f.text_field :industry
-    .field.right.gst_number
+    .field.left.country
+      = f.label :country
+      = f.select :country, options_for_select([['New Zealand', 'NEW_ZEALAND'], ['Australia', 'AUSTRALIA']], @entity.country)
+    %br
+    .field.left.gst_number
       = f.label :gst_number_1, 'GST Number'
       = f.text_field :gst_number_1
       = f.text_field :gst_number_2
       = f.text_field :gst_number_3
+    
   .action
     = f.submit

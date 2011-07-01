@@ -1,6 +1,7 @@
 - if current_user.admin?
   %h1 Finalize pricing
-  %p Manage the pricing here
+  %p= "Total monthly transactions: #{@application_form.total_transactions}"
+  %p= "Monthly fee: #{number_to_currency(@application_form.monthly_fee, :unit => "$")}"
   
   = form_for [@user, @entity, @application_form] do |f|
     = f.hidden_field :connection_fees

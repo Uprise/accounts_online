@@ -5,12 +5,13 @@ class ApplicationFormsController < ApplicationController
     @user = User.find(params[:user_id])
     @entity = @user.entities.find(params[:entity_id])
     @application_form = @entity.application_forms.build
-    @application_form.bank_accounts.build
+    @application_form.bank_accounts.build(:number_of_transactions => 0)
+    @application_form.credit_cards.build(:number_of_transactions => 0)
     @application_form.contact_person = ContactPerson.new
     @application_form.addresses.build :address_type => 'POSTAL'
     @application_form.addresses.build :address_type => 'PHYSICAL'
     @application_form.accountant = Accountant.new
-    @application_form.bartercard = Bartercard.new
+    @application_form.bartercard = Bartercard.new(:number_of_transactions => 0)
   end
   
   def create

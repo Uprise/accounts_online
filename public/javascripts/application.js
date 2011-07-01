@@ -1,4 +1,17 @@
 $(document).ready(function(){
+  function init_slider(slider) {
+    var start_val = slider.parent().find('input').val();
+    slider.slider({ max: 300, value: start_val });
+    slider.parent().find('.number_of_transactions_slider_text').text(start_val + " transactions");
+    slider.bind( "slide", function(event, ui) {
+      slider.parent().find('input').val(ui.value);
+      slider.parent().find('.number_of_transactions_slider_text').text(ui.value + " transactions");
+    });
+  }
+  
+  $( ".number_of_transactions_slider" ).each(function(){
+    init_slider($(this));
+  })
   function move_along($selector, limit, $next_param) {
     $selector.live('keydown', function(e) {
       if ($next_param == null) { $next = $(this).closest('.field').next().find('input'); if($next.length == 0) $next = $(this).closest('.field').parent().next().find('input'); }

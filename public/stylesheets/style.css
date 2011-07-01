@@ -277,7 +277,7 @@ br {
   width:100%;
 }
 
-.fields.bank_accounts {
+.fields.bank_accounts, .fields.credit_cards {
   margin-bottom:0;
   padding-bottom:0;
 }
@@ -307,3 +307,9 @@ table.admin input.text, input.small_input {width:150px !important; font-size:12p
 .field.needs_cheques { padding-top:28px;}
 
 table.pricing input.text{ padding:0; width:50px; font-size: 13px;}
+
+.number_of_transactions_slider_text { float:left; margin-top: 15px; }
+.number_of_transactions_slider { float:right; width:210px; margin-top: 17px; }
+
+.bartercard_transactions {margin-top:-12px; width:320px;}
+.country {margin-left:30px;}

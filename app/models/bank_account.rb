@@ -23,6 +23,7 @@ class BankAccount < ActiveRecord::Base
   def suffix
     read_attribute(:suffix) || ""
   end
+  
 end
 
 

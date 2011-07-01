@@ -97,14 +97,16 @@
         = bank_account_fields.label :name, 'Name of account'
         = bank_account_fields.text_field :name
       .field.right
-        = bank_account_fields.label :bank, 'Account Number'
+        = bank_account_fields.label :bank, 'Account number'
         = bank_account_fields.text_field :bank, :class => 'bank'
         = bank_account_fields.text_field :branch, :class => 'branch'
         = bank_account_fields.text_field :account, :class => 'account'
         = bank_account_fields.text_field :suffix, :class => 'suffix'
       .field.left
         = bank_account_fields.label :number_of_transactions, 'On average how many transactions per month?'
-        = bank_account_fields.text_field :number_of_transactions
+        = bank_account_fields.hidden_field :number_of_transactions
+        .number_of_transactions_slider_text
+        .number_of_transactions_slider
       .field.right.needs_cheques
         = bank_account_fields.check_box :needs_cheques
         = bank_account_fields.label :needs_cheques, 'Does this account need encoded cheques?'
@@ -113,6 +115,29 @@
       %br
     .action#add_account
       = f.link_to_add "+ Add another account", :bank_accounts
+      
+  #credit_cards.fields
+    %h3 Credit cards
+    = f.fields_for :credit_cards,  do |credit_card_fields|
+      .field.left
+        = credit_card_fields.label :name, 'Name on card'
+        = credit_card_fields.text_field :name
+      .field.right.credit_card_fields
+        = credit_card_fields.label :account_1, 'Card number'
+        = credit_card_fields.text_field :account_1
+        = credit_card_fields.text_field :account_2
+        = credit_card_fields.text_field :account_3
+        = credit_card_fields.text_field :account_4
+      .field.left
+        = credit_card_fields.label :number_of_transactions, 'On average how many transactions per month?'
+        = credit_card_fields.hidden_field :number_of_transactions
+        .number_of_transactions_slider_text
+        .number_of_transactions_slider
+      .action.right
+        = credit_card_fields.link_to_remove "Remove this credit card"
+      %br
+    .action#add_account
+      = f.link_to_add "+ Add another credit card", :credit_cards
     
   %br
 
@@ -131,5 +156,12 @@
         = bartercard.text_field :account_2
         = bartercard.text_field :account_3
         = bartercard.text_field :account_4
+      .field.left
+        = bartercard.label :number_of_transactions, 'On average how many transactions per month?'
+      .field.right.bartercard_transactions
+        = bartercard.hidden_field :number_of_transactions
+        .number_of_transactions_slider_text
+        .number_of_transactions_slider
+      %br
   .action
     = f.submit

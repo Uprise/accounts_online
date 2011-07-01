@@ -20,7 +20,7 @@ class ApplicationForm < ActiveRecord::Base
   validates :accountant,      :presence     =>  true
   validates :bank_accounts,   :length       =>  { :in => 1..3 }
   validates :addresses,       :length       =>  { :is => 2 }
-  validates :form_type,            :inclusion    =>  { :in => %w( SIGNUP CHANGE_BANKLINK CHANGE_BANK_ACCOUNTS ) }
+  validates :form_type,       :inclusion    =>  { :in => %w( SIGNUP CHANGE_BANKLINK CHANGE_BANK_ACCOUNTS ) }
   validates :status,          :inclusion    =>  { :in => %w( WAITING INCOMPLETE COMPLETE ) }
   
   def connection_fees
@@ -62,6 +62,28 @@ class ApplicationForm < ActiveRecord::Base
       when "COMPLETE" then "Forms are completed"
     end
   end
+  
+  def total_transactions
+     self.total_bank_account_transactions + self.total_credit_card_transactions + self.bartercard.total_number_of_transactions
+  end
+  
+  def total_bank_account_transactions
+    self.bank_accounts.inject(0) {|sum, acct| sum + acct.number_of_transactions }
+  end
+  
+  def total_credit_card_transactions
+    self.credit_cards.inject(0) {|sum, acct| sum + acct.number_of_transactions }
+  end
+  
+  def monthly_fee
+    case self.total_transactions
+      when 0..100 then 43.00
+      when 101..200 then 49.00
+      when 201..300 then 57.78
+      else "POA"
+    end
+  end
+  
 end
 
 

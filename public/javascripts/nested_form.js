@@ -1,4 +1,14 @@
 jQuery(function($) {
+  function init_slider(slider) {
+    var start_val = 0;
+    slider.slider({ max: 300, value: start_val });
+    slider.parent().find('.number_of_transactions_slider_text').text(start_val + " transactions");
+    slider.bind( "slide", function(event, ui) {
+      slider.parent().find('input').val(ui.value);
+      slider.parent().find('.number_of_transactions_slider_text').text(ui.value + " transactions");
+    });
+  }
+  
   $('form a.add_nested_fields').live('click', function() {
     // Setup
     var assoc   = $(this).attr('data-association');            // Name of child
@@ -35,6 +45,8 @@ jQuery(function($) {
     content     = content.replace(regexp, "new_" + new_id);
 
     $(this).before(content);
+          
+init_slider($('#application_form_'+assoc+'_attributes_new_'+new_id+'_number_of_transactions').parent().find('.number_of_transactions_slider'))
     check_maximum();
     $(this).closest("form").trigger('nested:fieldAdded');
     return false;
