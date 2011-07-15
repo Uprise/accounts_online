@@ -10,7 +10,7 @@
         %td
           Connection Fees
         %td
-          = "#{pluralize @application_form.bank_accounts.count, 'account'} x $20"
+          = "#{pluralize @application_form.number_of_accounts, 'account'} x $20"
         %td
           = "$#{@application_form.connection_fees}"
       %tr
@@ -55,5 +55,13 @@
       $('#application_form_set_up_hours, #application_form_data_entry_hours').trigger('change');
   
 - else
-  %h1 Thank you
-  %p We'll be in touch soon
+  - if @application_form.status == "PRICING"
+    %h1 Thank you
+    %p We'll be in touch soon
+  - else
+    %p= link_to "Back to #{@entity.trading_name} forms", user_entity_path(@user, @entity)
+    = button_to_function "Print forms", "frames['pdf'].print()", :id => 'print_button'
+    %p.loading Now loading forms, please be patient.
+
+    #pdf_content
+      %iframe{:type => 'application/pdf', :src => "/users/#{@application_form.entity.user.id}/entities/#{@application_form.entity.id}/application_forms/#{@application_form.id}/view.pdf#toolbar=1", :width => '733', :height => '800', :id => 'pdf'}

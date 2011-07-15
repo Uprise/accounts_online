@@ -16,6 +16,10 @@ class Bartercard < ActiveRecord::Base
     self.number_of_transactions * 3 # Each bartercard transaction counts as 3 seperate transactions in banklink
   end
   
+  def exists?
+    self.account.present? && self.name.present?
+  end
+  
 end
 
 

@@ -9,86 +9,88 @@
       %li= message
 
 = nested_form_for [@user, @entity, @application_form] do |f|
-  = f.fields_for :contact_person do |contact_person|
-    %h3 Contact person
-    .field.left
-      = contact_person.label :name, 'Name'
-      = contact_person.text_field :name
-    %br
-    .field.left
-      = contact_person.label :email, 'Email address'
-      = contact_person.text_field :email
-    .field.right
-      = contact_person.label :business_phone, 'Business phone'
-      = contact_person.text_field :business_phone
-    .field.left
-      = contact_person.label :mobile_phone, 'Mobile phone'
-      = contact_person.text_field :mobile_phone
-    .field.right
-      = contact_person.label :toll_free_phone, 'Toll-free phone'
-      = contact_person.text_field :toll_free_phone
-    .field.left
-      = contact_person.label :facsimile, 'Facsimile'
-      = contact_person.text_field :facsimile
-    .field.right
-      = contact_person.label :home_phone, 'Home phone'
-      = contact_person.text_field :home_phone
+  = f.hidden_field :form_type
+  %div{ :class => @application_form.form_type == 'SIGNUP' ? 'show' : 'hide' }
+    = f.fields_for :contact_person do |contact_person|
+      %h3 Contact person
+      .field.left
+        = contact_person.label :name, 'Name'
+        = contact_person.text_field :name
+      %br
+      .field.left
+        = contact_person.label :email, 'Email address'
+        = contact_person.text_field :email
+      .field.right
+        = contact_person.label :business_phone, 'Business phone'
+        = contact_person.text_field :business_phone
+      .field.left
+        = contact_person.label :mobile_phone, 'Mobile phone'
+        = contact_person.text_field :mobile_phone
+      .field.right
+        = contact_person.label :toll_free_phone, 'Toll-free phone'
+        = contact_person.text_field :toll_free_phone
+      .field.left
+        = contact_person.label :facsimile, 'Facsimile'
+        = contact_person.text_field :facsimile
+      .field.right
+        = contact_person.label :home_phone, 'Home phone'
+        = contact_person.text_field :home_phone
     
-  = f.fields_for :accountant do |accountant|
-    %h3 Accountant Details
-    .field.left
-      = accountant.label :name, 'Name'
-      = accountant.text_field :name
-    .field.right
-      = accountant.label :address_1, 'Street'
-      = accountant.text_field :address_1
-    .field.left
-      = accountant.label :address_2, 'City'
-      = accountant.text_field :address_2
-    .field.right
-      = accountant.label :partner, 'Postcode'
-      = accountant.text_field :partner
-    .field.left
-      = accountant.label :phone, 'Phone'
-      = accountant.text_field :phone
-    .field.right
-      = accountant.label :email, 'Email'
-      = accountant.text_field :email
+    = f.fields_for :accountant do |accountant|
+      %h3 Accountant Details
+      .field.left
+        = accountant.label :name, 'Name'
+        = accountant.text_field :name
+      .field.right
+        = accountant.label :address_1, 'Street'
+        = accountant.text_field :address_1
+      .field.left
+        = accountant.label :address_2, 'City'
+        = accountant.text_field :address_2
+      .field.right
+        = accountant.label :partner, 'Postcode'
+        = accountant.text_field :partner
+      .field.left
+        = accountant.label :phone, 'Phone'
+        = accountant.text_field :phone
+      .field.right
+        = accountant.label :email, 'Email'
+        = accountant.text_field :email
 
-  = f.fields_for :addresses, @application_form.physical do |physical|
-    %h3 Physical Address
-    = physical.hidden_field :address_type
-    .field.left
-      = physical.label :address_1, 'Street'
-      = physical.text_field :address_1
-    .field.right
-      = physical.label :address_2, 'Suburb'
-      = physical.text_field :address_2
-    .field.left
-      = physical.label :address_3, 'City'
-      = physical.text_field :address_3
-    .field.right
-      = physical.label :postcode, 'Postcode'
-      = physical.text_field :postcode
+    = f.fields_for :addresses, @application_form.physical do |physical|
+      %h3 Physical Address
+      = physical.hidden_field :address_type
+      .field.left
+        = physical.label :address_1, 'Street'
+        = physical.text_field :address_1
+      .field.right
+        = physical.label :address_2, 'Suburb'
+        = physical.text_field :address_2
+      .field.left
+        = physical.label :address_3, 'City'
+        = physical.text_field :address_3
+      .field.right
+        = physical.label :postcode, 'Postcode'
+        = physical.text_field :postcode
 
-  = f.fields_for :addresses, @application_form.postal do |postal|
-    %h3 Postal Address
-    = postal.hidden_field :address_type
-    .field.checker_selector
-      = check_box_tag 'same-address'
-      = label_tag 'same-address', 'Same as physical address'
-    .field.left
-      = postal.label :address_1, 'Street'
-      = postal.text_field :address_1
-    .field.right
-      = postal.label :address_2, 'Suburb'
-      = postal.text_field :address_2
-    .field.left
-      = postal.label :address_3, 'City'
-      = postal.text_field :address_3
-    .field.right
-      = postal.label :postcode, 'Postcode'
-      = postal.text_field :postcode
+    = f.fields_for :addresses, @application_form.postal do |postal|
+      %h3 Postal Address
+      = postal.hidden_field :address_type
+      .field.checker_selector
+        = check_box_tag 'same-address'
+        = label_tag 'same-address', 'Same as physical address'
+      .field.left
+        = postal.label :address_1, 'Street'
+        = postal.text_field :address_1
+      .field.right
+        = postal.label :address_2, 'Suburb'
+        = postal.text_field :address_2
+      .field.left
+        = postal.label :address_3, 'City'
+        = postal.text_field :address_3
+      .field.right
+        = postal.label :postcode, 'Postcode'
+        = postal.text_field :postcode
   
   #bank_accounts.fields
     %h3 Bank accounts
@@ -164,4 +166,4 @@
         .number_of_transactions_slider
       %br
   .action
-    = f.submit
+    = submit_tag button_text

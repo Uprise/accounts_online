@@ -25,6 +25,26 @@ class Entity < ActiveRecord::Base
     self.country == 'NEW_ZEALAND'
   end
   
+  def signed_up?
+    self.sign_up_forms.select{|forms| forms.status == "COMPLETE" }.count > 0
+  end
+  
+  def signing_up?
+    self.sign_up_forms.select{|forms| forms.status != "COMPLETE" }.count > 0
+  end
+  
+  def has_been_priced?
+    self.sign_up_forms.select{|forms| forms.status != "PRICING" }.count > 0
+  end
+  
+  def sign_up_forms
+    self.application_forms.select{|forms| forms.form_type == "SIGNUP" }
+  end
+  
+  def recent_sign_up_form
+    self.sign_up_forms.last
+  end
+  
 end
 
 # == Schema Information

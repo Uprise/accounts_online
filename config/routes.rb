@@ -12,6 +12,7 @@ AccountsOnline::Application.routes.draw do
         match 'update_notes' => 'application_forms#update_notes'
         match 'update_status' => 'application_forms#update_status'
       end
+      get 'change_banks' => 'entities#change_banks'
     end
   end
 

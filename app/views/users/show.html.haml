@@ -9,9 +9,7 @@
       %td Form type
       %td Status
       %td Notes
-      %td
-      %td
-      %td
+      %td{'col-span' => 3} Edit
     - @application_forms.each do |application_form|
       %tr
         %td= application_form.created_at.strftime "%d/%m/%y" 
@@ -19,13 +17,13 @@
         %td= application_form.print_form_type
         %td
           %form{ :action => application_form_update_status_path(application_form.entity.user, application_form.entity, application_form), :method => 'POST'}
-            = select_tag 'application_form[status]', options_for_select([['Waiting for forms', 'WAITING'], ['Forms incomplete', 'INCOMPLETE'], ['Forms complete', 'COMPLETE']], application_form.status)
+            = select_tag 'application_form[status]', options_for_select([['Needs to be priced', 'PRICING'], ['Waiting for forms', 'WAITING'], ['Forms incomplete', 'INCOMPLETE'], ['Forms complete', 'COMPLETE']], application_form.status), :disabled => application_form.not_priced?
         %td
           %form{ :action => application_form_update_notes_path(application_form.entity.user, application_form.entity, application_form), :method => 'POST'}
             = text_field_tag 'application_form[notes]', application_form.notes
-        %td= link_to 'Edit form', edit_user_entity_application_form_path(application_form.entity.user, application_form.entity, application_form)
-        %td= link_to 'Edit entity', edit_user_entity_path(application_form.entity.user, application_form.entity)
-        %td= link_to 'Finalize pricing', user_entity_application_form_path(application_form.entity.user, application_form.entity, application_form)
+        %td= link_to 'Form', edit_user_entity_application_form_path(application_form.entity.user, application_form.entity, application_form)
+        %td= link_to 'Entity', edit_user_entity_path(application_form.entity.user, application_form.entity)
+        %td= link_to 'Pricing', user_entity_application_form_path(application_form.entity.user, application_form.entity, application_form)
         
   :javascript
     $('select, input').change(function(){
@@ -42,22 +40,20 @@
 - else
   %p
     = "Hi #{@user.first_name}. The email we have on file for you is: #{@user.email}."
-    = link_to "Click here to edit", edit_user_registration_path
+    = link_to "Click here to update user info", edit_user_registration_path, :class => 'right'
 
   %table
     %tr
       %td Legal name
       %td Trading name
-      %td Industry
-      %td GST number
+      %td
       %td
     - @user.entities.each do |entity|
       %tr
-        %td= link_to entity.legal_name, user_entity_path(@user, entity)
+        %td= entity.legal_name
         %td= entity.trading_name
-        %td= entity.industry
-        %td= entity.gst_number
-        %td= link_to 'Edit', edit_user_entity_path(@user, entity)
+        %td= link_to 'Edit this entity', edit_user_entity_path(@user, entity)
+        %td= link_to 'Get banklink forms', user_entity_path(@user, entity)
 
-  %p= link_to "New entity", new_user_entity_path(params[:id])
+  %p= link_to "Add a new business", new_user_entity_path(params[:id])
   %p= link_to "Logout", destroy_user_session_path

@@ -55,3 +55,4 @@ AccountsOnline::Application.configure do
     end
   end
 end
+

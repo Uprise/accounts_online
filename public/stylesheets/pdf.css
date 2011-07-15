@@ -1,96 +1,174 @@
 .field{position:absolute}
 
-#page-two #legal-name{margin-top:-967px; margin-left:106px}
-#page-two #trading-name{ margin-top:-924px;  margin-left:122px}
-#page-two #contact-name{ margin-top:-882px;  margin-left:125px}
-#page-two #physical-address-1{ margin-top:-802px;  margin-left:85px}
-#page-two #physical-address-2{ margin-top:-762px;  margin-left:23px}
-#page-two #physical-address-3{ margin-top:-721px;  margin-left:23px}
-#page-two #physical-postcode{ margin-top:-721px;  margin-left:342px}
-#page-two #postal-address-1{ margin-top:-680px;  margin-left:70px}
-#page-two #postal-address-2{ margin-top:-640px;  margin-left:23px}
-#page-two #postal-address-3{ margin-top:-599px;  margin-left:23px}
-#page-two #postal-postcode{ margin-top:-599px;  margin-left:342px}
-#page-two #industry{ margin-top:-554px;  margin-left:507px}
-#page-two #contact-business{ margin-top:-518px;  margin-left:85px}
-#page-two #contact-toll-free{ margin-top:-482px;  margin-left:85px}
-#page-two #contact-facsimile{ margin-top:-446px;  margin-left:91px}
-#page-two #contact-home{ margin-top:-518px;  margin-left:405px}
-#page-two #contact-mobile{ margin-top:-482px;  margin-left:410px}
-#page-two #contact-email{ margin-top:-446px;  margin-left:401px}
-#page-two #bank-account-1-bank{ margin-top:-378px;  margin-left:213px;  letter-spacing:21px}
-#page-two #bank-account-1-branch{ margin-top:-378px;  margin-left:283px;  letter-spacing:19px}
-#page-two #bank-account-1-account{ margin-top:-378px;  margin-left:404px;  letter-spacing:20px}
-#page-two #bank-account-1-suffix{ margin-top:-378px;  margin-left:610px;  letter-spacing:19px}
-#page-two #bank-account-2-bank{ margin-top:-345px;  margin-left:213px;  letter-spacing:21px}
-#page-two #bank-account-2-branch{ margin-top:-345px;  margin-left:283px;  letter-spacing:19px}
-#page-two #bank-account-2-account{ margin-top:-345px;  margin-left:404px;  letter-spacing:20px}
-#page-two #bank-account-2-suffix{ margin-top:-345px;  margin-left:610px;  letter-spacing:19px}
-#page-two #bank-account-3-bank{ margin-top:-310px;  margin-left:213px;  letter-spacing:21px}
-#page-two #bank-account-3-branch{ margin-top:-310px;  margin-left:283px;  letter-spacing:19px}
-#page-two #bank-account-3-account{ margin-top:-310px;  margin-left:404px;  letter-spacing:20px}
-#page-two #bank-account-3-suffix{ margin-top:-310px;  margin-left:610px;  letter-spacing:19px}
-#page-two #gst-number-1{ margin-top:-274px;  margin-left:149px;  letter-spacing:34px}
-#page-two #gst-number-2{ margin-top:-274px;  margin-left:292px;  letter-spacing:34px}
-#page-two #gst-number-3{ margin-top:-274px;  margin-left:432px;  letter-spacing:34px}
-#page-two #accountant-name{ margin-top:-230px;  margin-left:138px}
-#page-two #accountant-address-1{ margin-top:-203px;  margin-left:155px}
-#page-two #accountant-address-2{ margin-top:-176px;  margin-left:115px}
-#page-two #accountant-partner{ margin-top:-230px;  margin-left:472px}
-#page-two #accountant-phone{ margin-top:-201px;  margin-left:470px}
-#page-two #accountant-email{ margin-top:-175px;  margin-left:468px}
+#new-zealand #page-two #legal-name{margin-top:-967px; margin-left:106px}
+#new-zealand #page-two #trading-name{ margin-top:-924px;  margin-left:122px}
+#new-zealand #page-two #contact-name{ margin-top:-882px;  margin-left:125px}
+#new-zealand #page-two #physical-address-1{ margin-top:-802px;  margin-left:85px}
+#new-zealand #page-two #physical-address-2{ margin-top:-762px;  margin-left:23px}
+#new-zealand #page-two #physical-address-3{ margin-top:-721px;  margin-left:23px}
+#new-zealand #page-two #physical-postcode{ margin-top:-721px;  margin-left:342px}
+#new-zealand #page-two #postal-address-1{ margin-top:-680px;  margin-left:70px}
+#new-zealand #page-two #postal-address-2{ margin-top:-640px;  margin-left:23px}
+#new-zealand #page-two #postal-address-3{ margin-top:-599px;  margin-left:23px}
+#new-zealand #page-two #postal-postcode{ margin-top:-599px;  margin-left:342px}
+#new-zealand #page-two #industry{ margin-top:-554px;  margin-left:507px}
+#new-zealand #page-two #contact-business{ margin-top:-518px;  margin-left:85px}
+#new-zealand #page-two #contact-toll-free{ margin-top:-482px;  margin-left:85px}
+#new-zealand #page-two #contact-facsimile{ margin-top:-446px;  margin-left:91px}
+#new-zealand #page-two #contact-home{ margin-top:-518px;  margin-left:405px}
+#new-zealand #page-two #contact-mobile{ margin-top:-482px;  margin-left:410px}
+#new-zealand #page-two #contact-email{ margin-top:-446px;  margin-left:401px}
+#new-zealand #page-two #bank-account-1-bank{ margin-top:-378px;  margin-left:213px;  letter-spacing:21px}
+#new-zealand #page-two #bank-account-1-branch{ margin-top:-378px;  margin-left:283px;  letter-spacing:19px}
+#new-zealand #page-two #bank-account-1-account{ margin-top:-378px;  margin-left:404px;  letter-spacing:20px}
+#new-zealand #page-two #bank-account-1-suffix{ margin-top:-378px;  margin-left:610px;  letter-spacing:19px}
+#new-zealand #page-two #bank-account-2-bank{ margin-top:-345px;  margin-left:213px;  letter-spacing:21px}
+#new-zealand #page-two #bank-account-2-branch{ margin-top:-345px;  margin-left:283px;  letter-spacing:19px}
+#new-zealand #page-two #bank-account-2-account{ margin-top:-345px;  margin-left:404px;  letter-spacing:20px}
+#new-zealand #page-two #bank-account-2-suffix{ margin-top:-345px;  margin-left:610px;  letter-spacing:19px}
+#new-zealand #page-two #bank-account-3-bank{ margin-top:-310px;  margin-left:213px;  letter-spacing:21px}
+#new-zealand #page-two #bank-account-3-branch{ margin-top:-310px;  margin-left:283px;  letter-spacing:19px}
+#new-zealand #page-two #bank-account-3-account{ margin-top:-310px;  margin-left:404px;  letter-spacing:20px}
+#new-zealand #page-two #bank-account-3-suffix{ margin-top:-310px;  margin-left:610px;  letter-spacing:19px}
+#new-zealand #page-two #gst-number-1{ margin-top:-274px;  margin-left:149px;  letter-spacing:34px}
+#new-zealand #page-two #gst-number-2{ margin-top:-274px;  margin-left:292px;  letter-spacing:34px}
+#new-zealand #page-two #gst-number-3{ margin-top:-274px;  margin-left:432px;  letter-spacing:34px}
+#new-zealand #page-two #accountant-name{ margin-top:-230px;  margin-left:138px}
+#new-zealand #page-two #accountant-address-1{ margin-top:-203px;  margin-left:155px}
+#new-zealand #page-two #accountant-address-2{ margin-top:-176px;  margin-left:115px}
+#new-zealand #page-two #accountant-partner{ margin-top:-230px;  margin-left:472px}
+#new-zealand #page-two #accountant-phone{ margin-top:-201px;  margin-left:470px}
+#new-zealand #page-two #accountant-email{ margin-top:-175px;  margin-left:468px}
 
-#page-three #date{margin-top:-1006px;margin-left:490px}
-#page-three #name{margin-top:-860px;margin-left:20px}
-#page-three #address-1{margin-top:-837px;margin-left:20px}
-#page-three #address-2{margin-top:-814px;margin-left:20px}
-#page-three #address-3{margin-top:-790px;margin-left:20px}
-#page-three #number-of-accounts{margin-top:-690px;margin-left:324px}
-#page-three #connection-fee{margin-top:-690px;margin-left:574px}
-#page-three #training-hours{margin-top:-649px;margin-left:308px}
-#page-three #training-cost{margin-top:-649px;margin-left:398px}
-#page-three #training-total{margin-top:-649px;margin-left:576px}
-#page-three #subscription-ex-gst{margin-top:-847px;margin-left:595px}
-#page-three #subscription-in-gst{margin-top:-793px;margin-left:595px}
-#page-three #travel-total{margin-top:-565px;margin-left:573px}
-#page-three #estimate-total{margin-top:-531px;margin-left:573px}
+#new-zealand #page-three #date{margin-top:-1006px;margin-left:490px}
+#new-zealand #page-three #name{margin-top:-860px;margin-left:20px}
+#new-zealand #page-three #address-1{margin-top:-837px;margin-left:20px}
+#new-zealand #page-three #address-2{margin-top:-814px;margin-left:20px}
+#new-zealand #page-three #address-3{margin-top:-790px;margin-left:20px}
+#new-zealand #page-three #number-of-accounts{margin-top:-690px;margin-left:324px}
+#new-zealand #page-three #connection-fee{margin-top:-690px;margin-left:574px}
+#new-zealand #page-three #training-hours{margin-top:-649px;margin-left:308px}
+#new-zealand #page-three #training-cost{margin-top:-649px;margin-left:398px}
+#new-zealand #page-three #training-total{margin-top:-649px;margin-left:576px}
+#new-zealand #page-three #data-entry-hours{margin-top: -599px;margin-left: 301px}
+#new-zealand #page-three #data-entry-cost{margin-top: -599px;margin-left: 398px}
+#new-zealand #page-three #data-entry-total{margin-top: -599px;margin-left: 575px}
+#new-zealand #page-three #subscription-ex-gst{margin-top:-847px;margin-left:595px}
+#new-zealand #page-three #subscription-in-gst{margin-top:-793px;margin-left:595px}
+#new-zealand #page-three #travel-total{margin-top:-565px;margin-left:573px}
+#new-zealand #page-three #estimate-total{margin-top:-531px;margin-left:573px}
 
-#page-four #bank-account-1-name{ margin-top:-953px;  margin-left:128px}
-#page-four #bank-account-1{ margin-top:-924px;  margin-left:128px}
-#page-four #bank-account-2-name{ margin-top:-887px;  margin-left:128px}
-#page-four #bank-account-2{ margin-top:-857px;  margin-left:128px}
-#page-four #bank-account-3-name{ margin-top:-822px;  margin-left:128px}
-#page-four #bank-account-3{ margin-top:-793px;  margin-left:128px}
-#page-four #bank-branch-name{ margin-top:-687px;  margin-left:37px}
-#page-four #start-date-day{ margin-top:-577px;  margin-left:100px}
-#page-four #start-date-month{ margin-top:-577px;  margin-left:177px}
-#page-four #start-date-year{ margin-top:-577px;  margin-left:319px}
-#page-four #date-day{ margin-top:-385px;  margin-left:100px}
-#page-four #date-month{ margin-top:-385px;  margin-left:200px}
-#page-four #date-year{ margin-top:-385px;  margin-left:369px}
-#page-four #name{ margin-top:-330px;  margin-left:33px}
+#new-zealand #page-four #bank-account-1-name{ margin-top:-953px;  margin-left:128px}
+#new-zealand #page-four #bank-account-1{ margin-top:-924px;  margin-left:128px}
+#new-zealand #page-four #bank-account-2-name{ margin-top:-887px;  margin-left:128px}
+#new-zealand #page-four #bank-account-2{ margin-top:-857px;  margin-left:128px}
+#new-zealand #page-four #bank-account-3-name{ margin-top:-822px;  margin-left:128px}
+#new-zealand #page-four #bank-account-3{ margin-top:-793px;  margin-left:128px}
+#new-zealand #page-four #bank-branch-name{ margin-top:-687px;  margin-left:37px}
+#new-zealand #page-four #start-date-day{ margin-top:-577px;  margin-left:100px}
+#new-zealand #page-four #start-date-month{ margin-top:-577px;  margin-left:177px}
+#new-zealand #page-four #start-date-year{ margin-top:-577px;  margin-left:319px}
+#new-zealand #page-four #date-day{ margin-top:-385px;  margin-left:100px}
+#new-zealand #page-four #date-month{ margin-top:-385px;  margin-left:200px}
+#new-zealand #page-four #date-year{ margin-top:-385px;  margin-left:369px}
+#new-zealand #page-four #name{ margin-top:-330px;  margin-left:33px}
 
-#page-five #date-day{margin-top:-931px;margin-left:71px}
-#page-five #date-month{margin-top:-931px;margin-left:115px}
-#page-five #date-year{margin-top:-931px;margin-left:157px}
-#page-five #name{margin-top:-877px;margin-left:140px}
-#page-five #address-1{margin-top:-815px;margin-left:155px}
-#page-five #address-2{margin-top:-772px;margin-left:20px}
-#page-five #address-3{margin-top:-732px;margin-left:19px}
-#page-five #bank-account-bank{ margin-top:-470px;  margin-left:243px;  letter-spacing:15px}
-#page-five #bank-account-branch{ margin-top:-470px;  margin-left:314px;  letter-spacing:15px}
-#page-five #bank-account-account{ margin-top:-470px;  margin-left:433px;  letter-spacing:15px}
-#page-five #bank-account-suffix{ margin-top:-470px;  margin-left:621px;  letter-spacing:15px}
+#new-zealand #page-five #date-day{margin-top:-931px;margin-left:71px}
+#new-zealand #page-five #date-month{margin-top:-931px;margin-left:115px}
+#new-zealand #page-five #date-year{margin-top:-931px;margin-left:157px}
+#new-zealand #page-five #name{margin-top:-877px;margin-left:140px}
+#new-zealand #page-five #address-1{margin-top:-815px;margin-left:155px}
+#new-zealand #page-five #address-2{margin-top:-772px;margin-left:20px}
+#new-zealand #page-five #address-3{margin-top:-732px;margin-left:19px}
+#new-zealand #page-five #bank-account-bank{ margin-top:-470px;  margin-left:243px;  letter-spacing:15px}
+#new-zealand #page-five #bank-account-branch{ margin-top:-470px;  margin-left:314px;  letter-spacing:15px}
+#new-zealand #page-five #bank-account-account{ margin-top:-470px;  margin-left:433px;  letter-spacing:15px}
+#new-zealand #page-five #bank-account-suffix{ margin-top:-470px;  margin-left:621px;  letter-spacing:15px}
 
-#page-six #bank-account-name{ margin-top:-985px;  margin-left:138px}
-#page-six #bank-account-bank{ margin-top:-904px;  margin-left:38px;  letter-spacing:8px}
-#page-six #bank-account-branch{ margin-top:-904px;  margin-left:71px;  letter-spacing:8px}
-#page-six #bank-account-account{ margin-top:-904px;  margin-left:167px;  letter-spacing:8px}
-#page-six #bank-account-suffix{ margin-top:-904px;  margin-left:312px;  letter-spacing:8px}
-#page-six #date-day{margin-top: -797px;margin-left: 550px}
-#page-six #date-month{margin-top: -797px;margin-left: 594px}
-#page-six #date-year{margin-top: -797px;margin-left: 634px}
+#new-zealand #page-six #bank-account-name{ margin-top:-985px;  margin-left:138px}
+#new-zealand #page-six #bank-account-bank{ margin-top:-904px;  margin-left:38px;  letter-spacing:8px}
+#new-zealand #page-six #bank-account-branch{ margin-top:-904px;  margin-left:71px;  letter-spacing:8px}
+#new-zealand #page-six #bank-account-account{ margin-top:-904px;  margin-left:167px;  letter-spacing:8px}
+#new-zealand #page-six #bank-account-suffix{ margin-top:-904px;  margin-left:312px;  letter-spacing:8px}
+#new-zealand #page-six #date-day{margin-top: -797px;margin-left: 550px}
+#new-zealand #page-six #date-month{margin-top: -797px;margin-left: 594px}
+#new-zealand #page-six #date-year{margin-top: -797px;margin-left: 634px}
 
-#page-seven #bartercard-name{margin-top: -867px; margin-left: 247px}
-#page-seven #bartercard-account-start{margin-top: -824px; margin-left: 490px; letter-spacing:19px;}
-#page-seven #bartercard-account-end{margin-top: -824px; margin-left: 610px; letter-spacing:19px;}
+#new-zealand #page-seven #bartercard-name{margin-top: -867px; margin-left: 247px}
+#new-zealand #page-seven #bartercard-account-start{margin-top: -824px; margin-left: 490px; letter-spacing:19px;}
+#new-zealand #page-seven #bartercard-account-end{margin-top: -824px; margin-left: 610px; letter-spacing:19px;}
+
+#australia #page-two #legal-name{margin-top:-952px; margin-left:106px}
+#australia #page-two #trading-name{ margin-top:-910px;  margin-left:122px}
+#australia #page-two #contact-name{ margin-top:-870px;  margin-left:125px}
+#australia #page-two #physical-address-1{ margin-top:-792px;  margin-left:85px}
+#australia #page-two #physical-address-2{ margin-top:-752px;  margin-left:23px}
+#australia #page-two #physical-address-3{ margin-top:-711px;  margin-left:23px}
+#australia #page-two #physical-postcode{ margin-top:-711px;  margin-left:342px}
+#australia #page-two #postal-address-1{ margin-top:-670px;  margin-left:70px}
+#australia #page-two #postal-address-2{ margin-top:-630px;  margin-left:23px}
+#australia #page-two #postal-address-3{ margin-top:-589px;  margin-left:23px}
+#australia #page-two #postal-postcode{ margin-top:-589px;  margin-left:342px}
+#australia #page-two #industry{ margin-top:-547px;  margin-left:507px}
+#australia #page-two #contact-business{ margin-top:-511px;  margin-left:85px}
+#australia #page-two #contact-toll-free{ margin-top:-475px;  margin-left:85px}
+#australia #page-two #contact-facsimile{ margin-top:-440px;  margin-left:91px}
+#australia #page-two #contact-home{ margin-top:-511px;  margin-left:405px}
+#australia #page-two #contact-mobile{ margin-top:-475px;  margin-left:410px}
+#australia #page-two #contact-email{ margin-top:-440px;  margin-left:401px}
+#australia #page-two #bank-account-1-bank{ margin-top:-367px;  margin-left:425px}
+#australia #page-two #bank-account-1-branch{ margin-top:-367px;  margin-left:461px}
+#australia #page-two #bank-account-1-account{ margin-top:-367px;  margin-left:521px}
+#australia #page-two #bank-account-1-suffix{ margin-top:-367px;  margin-left:610px}
+#australia #page-two #bank-account-2-bank{ margin-top:-336px;  margin-left:425px}
+#australia #page-two #bank-account-2-branch{ margin-top:-336px;  margin-left:461px}
+#australia #page-two #bank-account-2-account{ margin-top:-336px;  margin-left:521px}
+#australia #page-two #bank-account-2-suffix{ margin-top:-336px;  margin-left:610px}
+#australia #page-two #bank-account-3-bank{ margin-top:-304px;  margin-left:425px}
+#australia #page-two #bank-account-3-branch{ margin-top:-304px;  margin-left:461px}
+#australia #page-two #bank-account-3-account{ margin-top:-304px;  margin-left:521px}
+#australia #page-two #bank-account-3-suffix{ margin-top:-304px;  margin-left:610px}
+#australia #page-two #abn-number{ margin-top:-267px;  margin-left:149px}
+#australia #page-two #accountant-name{ margin-top:-230px;  margin-left:138px}
+#australia #page-two #accountant-address-1{ margin-top:-203px;  margin-left:155px}
+#australia #page-two #accountant-address-2{ margin-top:-176px;  margin-left:115px}
+#australia #page-two #accountant-partner{ margin-top:-230px;  margin-left:472px}
+#australia #page-two #accountant-phone{ margin-top:-201px;  margin-left:470px}
+#australia #page-two #accountant-email{ margin-top:-175px;  margin-left:468px}
+
+#australia #page-three #date{margin-top:-974px;margin-left:490px}
+#australia #page-three #name{margin-top:-835px;margin-left:20px}
+#australia #page-three #address-1{margin-top:-811px;margin-left:20px}
+#australia #page-three #address-2{margin-top:-790px;margin-left:20px}
+#australia #page-three #address-3{margin-top:-765px;margin-left:20px}
+#australia #page-three #number-of-accounts{margin-top:-668px;margin-left:308px}
+#australia #page-three #connection-fee{margin-top:-668px;margin-left:574px}
+#australia #page-three #training-hours{margin-top:-629px;margin-left:285px}
+#australia #page-three #training-cost{margin-top:-629px;margin-left:398px}
+#australia #page-three #training-total{margin-top:-629px;margin-left:576px}
+#australia #page-three #data-entry-hours{margin-top: -580px;margin-left: 285px}
+#australia #page-three #data-entry-cost{margin-top: -580px;margin-left: 398px}
+#australia #page-three #data-entry-total{margin-top: -580px;margin-left: 575px}
+#australia #page-three #subscription-ex-gst{margin-top:-818px;margin-left:595px}
+#australia #page-three #subscription-in-gst{margin-top:-767px;margin-left:595px}
+#australia #page-three #travel-total{margin-top:-549px;margin-left:573px}
+#australia #page-three #estimate-total{margin-top:-514px;margin-left:573px}
+
+#australia #page-four #bank-account-1-name{ margin-top:-897px;  margin-left:128px}
+#australia #page-four #bank-account-1{ margin-top:-870px;  margin-left:130px; word-spacing:8px;}
+#australia #page-four #bank-account-2-name{ margin-top:-887px;  margin-left:128px}
+#australia #page-four #bank-account-2{ margin-top:-857px;  margin-left:128px}
+#australia #page-four #bank-account-3-name{ margin-top:-822px;  margin-left:128px}
+#australia #page-four #bank-account-3{ margin-top:-793px;  margin-left:128px}
+#australia #page-four #bank-branch-name{ margin-top:-638px;  margin-left:55px}
+#australia #page-four #start-date-day{ margin-top:-583px;  margin-left:100px}
+#australia #page-four #start-date-month{ margin-top:-583px;  margin-left:445px}
+#australia #page-four #start-date-year{ margin-top:-583px;  margin-left:508px}
+#australia #page-four #date-day{ margin-top:-247px;  margin-left:111px}
+#australia #page-four #date-month{ margin-top:-247px;  margin-left:200px}
+#australia #page-four #date-year{ margin-top:-247px;  margin-left:369px}
+#australia #page-four #name{ margin-top:-330px;  margin-left:33px}
+
+#australia #page-five #bartercard-name{margin-top: -867px; margin-left: 247px}
+#australia #page-five #bartercard-account-start{margin-top: -824px; margin-left: 490px; letter-spacing:19px;}
+#australia #page-five #bartercard-account-end{margin-top: -824px; margin-left: 610px; letter-spacing:19px;}

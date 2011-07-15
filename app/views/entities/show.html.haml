@@ -1,21 +1,38 @@
-= link_to 'Return to entity list', @user
-%h1= "Request forms for #{@entity.trading_name}"
+= link_to 'Back to business list', @user
+%h1= "#{@entity.trading_name} Banklink forms"
 
-- if @entity.application_forms.empty?
+- unless @entity.signed_up? || @entity.signing_up?
   %p 
     You need to complete an application form.
     = link_to 'Click here to begin', new_user_entity_application_form_path(@user, @entity)
 - else
-  - @entity.application_forms.each do |application_form|
+  - if @entity.signing_up?
+    - if @entity.has_been_priced?
+      %p 
+        Your forms are ready. Download them
+        = link_to 'here', user_entity_application_form_path(@entity.user, @entity, @entity.sign_up_forms.first)
+      %p
+        Once these are filled in, send them back to us and we'll take care of the rest.
+      
+    - else
+      %p We're looking over your application and will be in contact soon.
+  - else
+    %p You've been successfully signed up to Banklink
+    %h4 Make changes to your account
+    %p= link_to 'Change your bank details', entity_change_banks_path(@user, @entity)
+    %p= link_to 'Change your banklink plan', new_user_entity_application_form_path(@user, @entity)
     %table
       %tr
         %td Application Date
         %td Application Type
         %td Status
         %td
-      %tr
-        %td= application_form.created_at.strftime "%d/%m/%y"
-        %td= link_to application_form.print_form_type, user_entity_application_form_path(@user, @entity, application_form)
-        %td= application_form.print_status
-        %td= link_to 'Edit form', edit_user_entity_application_form_path(@entity.user, @entity, application_form)
-        
+      - @entity.application_forms.each do |application_form|
+        %tr
+          %td= application_form.created_at.strftime "%d/%m/%y"
+          %td= application_form.print_form_type
+          %td= application_form.print_status
+          - if application_form.status == "PRICING"
+            %td= link_to 'Edit form', edit_user_entity_application_form_path(@entity.user, @entity, application_form) 
+          - else
+            %td= link_to 'Download forms', user_entity_application_form_path(@entity.user, @entity, application_form)

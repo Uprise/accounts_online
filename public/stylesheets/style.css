@@ -313,3 +313,5 @@ table.pricing input.text{ padding:0; width:50px; font-size: 13px;}
 
 .bartercard_transactions {margin-top:-12px; width:320px;}
 .country {margin-left:30px;}
+
+.hide { display:none; }

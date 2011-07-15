@@ -1,0 +1,9 @@
+<html>
+<body>
+<p>Hello,</p>
+
+<p>A new application form for <%= @entity.trading_name %> has been submitted.</p>
+
+<p>You can review the forms <a href="<%= edit_user_entity_application_form_url(@user, @entity, @application_form) %>">here</a> or add pricing details <a href="<%= user_entity_application_form_url(@user, @entity, @application_form) %>">here</a>.</p>
+</body>
+</html>

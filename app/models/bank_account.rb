@@ -24,6 +24,10 @@ class BankAccount < ActiveRecord::Base
     read_attribute(:suffix) || ""
   end
   
+  def full
+    "#{self.bank}#{self.branch}#{self.account}#{self.suffix}"
+  end
+  
 end
 
 

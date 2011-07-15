@@ -1,5 +1,6 @@
 class ApplicationFormsController < ApplicationController
-  before_filter :correct_user, :only => [:edit, :update, :show]
+  before_filter :authenticate_user!
+  before_filter :correct_user, :only => [:edit, :update, :show, :view]
   
   def new
     @user = User.find(params[:user_id])
@@ -12,14 +13,17 @@ class ApplicationFormsController < ApplicationController
     @application_form.addresses.build :address_type => 'PHYSICAL'
     @application_form.accountant = Accountant.new
     @application_form.bartercard = Bartercard.new(:number_of_transactions => 0)
+    @application_form.form_type = "SIGNUP"
   end
   
   def create
     @user = User.find(params[:user_id])
     @entity = @user.entities.find(params[:entity_id])
     @application_form = @entity.application_forms.build(params[:application_form])
+    @application_form.status = "PRICING"
+    @application_form.form_type = "SIGNUP" if @application_form.form_type.blank?
     if @application_form.save
-      redirect_to user_entity_application_form_path(@user, @entity, @application_form)
+      redirect_to user_entity_path(@user, @entity)
     else
       render 'new'
     end
@@ -44,9 +48,6 @@ class ApplicationFormsController < ApplicationController
   end
   
   def view
-    @ba1 = @application_form.bank_accounts[0] ? @application_form.bank_accounts[0] : BankAccount.new
-    @ba2 = @application_form.bank_accounts[1] ? @application_form.bank_accounts[1] : BankAccount.new
-    @ba3 = @application_form.bank_accounts[2] ? @application_form.bank_accounts[2] : BankAccount.new
     respond_to do |format|
       format.html do
         render :layout => "pdf"
@@ -86,7 +87,6 @@ class ApplicationFormsController < ApplicationController
     unless @application_form.update_attributes(params[:application_form])
       raise "Unable to update notes"
     end
-    # redirect_to admin_home_path
     render :nothing => true
   end
   
@@ -97,8 +97,8 @@ class ApplicationFormsController < ApplicationController
     unless @application_form.update_attributes(params[:application_form])
       raise "Unable to update notes"
     end
-    # redirect_to admin_home_path
     render :nothing => true
+    @application_form.send_priced_email
   end
   
   private
@@ -112,7 +112,7 @@ class ApplicationFormsController < ApplicationController
         @entity = @user.entities.find(params[:entity_id])
         @application_form = @entity.application_forms.find(params[:id])
       end
-      return if current_user == User.first || current_user == User.last
+      return if current_user.admin?
       redirect_to root_path unless current_user == @application_form.entity.user
     end
 end

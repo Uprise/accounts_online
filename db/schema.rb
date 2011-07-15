@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110630221419) do
+ActiveRecord::Schema.define(:version => 20110711014351) do
 
   create_table "accountants", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110630221419) do
     t.decimal  "data_entry_hours"
     t.decimal  "data_entry_rate"
     t.decimal  "travel_cost"
+    t.boolean  "sent_priced_email"
   end
 
   create_table "bank_accounts", :force => true do |t|

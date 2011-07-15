@@ -57,11 +57,23 @@ $(document).ready(function(){
   bartercard();
   $('#bartercard-member').change(bartercard);
   
-  // $('#pdf').load(function(){
-  //   frames['pdf'].print()
-  // })
+  function country() {
+    if($('#entity_country').val() == 'AUSTRALIA') {
+      $('.gst_number').hide();
+      $('.abn_number').show();
+      }
+    else {
+      $('.gst_number').show();
+      $('.abn_number').hide(); 
+      }
+  }
   
-  if($.browser.webkit) {
-    $('#print_button, #uniform-print_button').show();
-   }
+  country();
+  $('#entity_country').change(country);
+  
+  $('#pdf').load(function(){
+    if($.browser.webkit) { $('#print_button, #uniform-print_button').show(); }
+    $('.loading').hide();
+  })
+  
 })
