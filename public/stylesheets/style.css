@@ -304,6 +304,8 @@ table.admin input.text, input.small_input {width:150px !important; font-size:12p
   display:none;
 }
 
+.slim {width: 314px;}
+
 .field.needs_cheques { padding-top:28px;}
 
 table.pricing input.text{ padding:0; width:50px; font-size: 13px;}

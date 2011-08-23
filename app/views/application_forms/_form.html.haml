@@ -98,12 +98,9 @@
       .field.left
         = bank_account_fields.label :name, 'Name of account'
         = bank_account_fields.text_field :name
-      .field.right
-        = bank_account_fields.label :bank, 'Account number'
-        = bank_account_fields.text_field :bank, :class => 'bank'
-        = bank_account_fields.text_field :branch, :class => 'branch'
-        = bank_account_fields.text_field :account, :class => 'account'
-        = bank_account_fields.text_field :suffix, :class => 'suffix'
+      .field.right.slim
+        = bank_account_fields.label :account, 'Account number'
+        = bank_account_fields.text_field :account
       .field.left
         = bank_account_fields.label :number_of_transactions, 'On average how many transactions per month?'
         = bank_account_fields.hidden_field :number_of_transactions
@@ -124,12 +121,9 @@
       .field.left
         = credit_card_fields.label :name, 'Name on card'
         = credit_card_fields.text_field :name
-      .field.right.credit_card_fields
-        = credit_card_fields.label :account_1, 'Card number'
-        = credit_card_fields.text_field :account_1
-        = credit_card_fields.text_field :account_2
-        = credit_card_fields.text_field :account_3
-        = credit_card_fields.text_field :account_4
+      .field.right.slim
+        = credit_card_fields.label :account, 'Card number'
+        = credit_card_fields.text_field :account
       .field.left
         = credit_card_fields.label :number_of_transactions, 'On average how many transactions per month?'
         = credit_card_fields.hidden_field :number_of_transactions
@@ -146,18 +140,15 @@
   = f.fields_for :bartercard do |bartercard|
     %h3 Bartercard Members
     .field.checker_selector
-      = check_box_tag 'bartercard-member', "1", !@application_form.bartercard.name.blank? || !@application_form.bartercard.account_1.blank?
+      = check_box_tag 'bartercard-member', "1", !@application_form.bartercard.name.blank? || !@application_form.bartercard.account.blank?
       = label_tag 'bartercard-member', 'I am a Bartercard member'
     #bartercard_fields
       .field.left
         = bartercard.label :name, 'Name on Bartercard account'
         = bartercard.text_field :name
-      .field.right.credit_card_fields
-        = bartercard.label :account_1, 'Bartercard account number'
-        = bartercard.text_field :account_1
-        = bartercard.text_field :account_2
-        = bartercard.text_field :account_3
-        = bartercard.text_field :account_4
+      .field.right
+        = bartercard.label :account, 'Bartercard account number'
+        = bartercard.text_field :account
       .field.left
         = bartercard.label :number_of_transactions, 'On average how many transactions per month?'
       .field.right.bartercard_transactions

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110711014351) do
+ActiveRecord::Schema.define(:version => 20110822220549) do
 
   create_table "accountants", :force => true do |t|
     t.string   "name"
@@ -51,10 +51,7 @@ ActiveRecord::Schema.define(:version => 20110711014351) do
   end
 
   create_table "bank_accounts", :force => true do |t|
-    t.string   "bank"
-    t.string   "branch"
     t.string   "account"
-    t.string   "suffix"
     t.integer  "application_form_id"
     t.integer  "order"
     t.datetime "created_at"
@@ -67,14 +64,11 @@ ActiveRecord::Schema.define(:version => 20110711014351) do
 
   create_table "bartercards", :force => true do |t|
     t.string   "name"
-    t.string   "account_1"
-    t.string   "account_2"
-    t.string   "account_3"
-    t.string   "account_4"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "application_form_id"
     t.integer  "number_of_transactions"
+    t.string   "account"
   end
 
   create_table "contact_people", :force => true do |t|
@@ -93,13 +87,10 @@ ActiveRecord::Schema.define(:version => 20110711014351) do
   create_table "credit_cards", :force => true do |t|
     t.integer  "application_form_id"
     t.string   "name"
-    t.string   "account_1"
-    t.string   "account_2"
-    t.string   "account_3"
-    t.string   "account_4"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "number_of_transactions"
+    t.string   "account"
   end
 
   create_table "entities", :force => true do |t|
@@ -107,13 +98,12 @@ ActiveRecord::Schema.define(:version => 20110711014351) do
     t.string   "legal_name"
     t.string   "trading_name"
     t.string   "industry"
-    t.string   "gst_number_1"
-    t.string   "gst_number_2"
-    t.string   "gst_number_3"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
     t.string   "abn_number"
+    t.string   "gst_number"
+    t.integer  "paying_account"
   end
 
   create_table "sessions", :force => true do |t|

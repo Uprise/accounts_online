@@ -8,7 +8,7 @@
 - else
   - if @entity.signing_up?
     - if @entity.has_been_priced?
-      %p 
+      %p
         Your forms are ready. Download them
         = link_to 'here', user_entity_application_form_path(@entity.user, @entity, @entity.sign_up_forms.first)
       %p

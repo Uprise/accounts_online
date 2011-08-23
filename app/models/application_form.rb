@@ -96,11 +96,11 @@ class ApplicationForm < ActiveRecord::Base
   end
   
   def total_bank_account_transactions
-    self.bank_accounts.inject(0) {|sum, acct| sum + acct.number_of_transactions }
+    self.bank_accounts.inject(0) {|sum, acct| acct.number_of_transactions.blank? ? sum : sum + acct.number_of_transactions }
   end
   
   def total_credit_card_transactions
-    self.credit_cards.inject(0) {|sum, acct| sum + acct.number_of_transactions }
+    self.credit_cards.inject(0) {|sum, acct| acct.number_of_transactions.blank? ? sum : sum + acct.number_of_transactions }
   end
   
   def monthly_fee
@@ -109,6 +109,14 @@ class ApplicationForm < ActiveRecord::Base
       when 101..200 then 49.00
       when 201..300 then 57.78
       else "POA"
+    end
+  end
+  
+  def sorted_bank_accounts
+    self.bank_accounts.inject({}) do |result, acct|
+      bank = acct.account[0..1]
+      result[bank] ? result[bank].push(acct) : result[bank] = [acct]
+      result
     end
   end
   

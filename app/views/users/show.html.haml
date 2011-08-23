@@ -53,7 +53,7 @@
         %td= entity.legal_name
         %td= entity.trading_name
         %td= link_to 'Edit this entity', edit_user_entity_path(@user, entity)
-        %td= link_to 'Get banklink forms', user_entity_path(@user, entity)
+        %td= link_to 'Get banklink forms', entity_pricing_path(@user, entity)
 
   %p= link_to "Add a new business", new_user_entity_path(params[:id])
   %p= link_to "Logout", destroy_user_session_path

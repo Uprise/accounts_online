@@ -3,10 +3,7 @@ class BankAccount < ActiveRecord::Base
   attr_accessible :name, :bank, :branch, :account, :suffix, :needs_cheques, :pays_subscription?, :number_of_transactions
   
   validates :name,      :presence     =>  true
-  validates :bank,      :length       =>  { :is => 2 }
-  validates :branch,    :length       =>  { :is => 4 }
-  validates :account,   :length       =>  { :is => 7 }
-  validates :suffix,    :length       =>  { :is => 3 }
+  validates :account,   :length       =>  { :is => 16 }
                         
   def bank
     read_attribute(:bank) || ""

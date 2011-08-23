@@ -1,0 +1,57 @@
+= link_to "Back to #{@entity.trading_name} forms", user_entity_path(@user, @entity)
+
+%h3 One-off cost
+%table.pricing
+  %tr
+    %td
+      Connection Fees
+    %td
+      = "#{pluralize @application_form.number_of_accounts, 'account'} x $20"
+    %td
+      = "$#{@application_form.connection_fees}"
+  %tr
+    %td
+      Set Up & Training
+    %td
+      = @application_form.set_up_hours
+      hours
+      x $
+      = "$#{@application_form.set_up_rate}"
+    %td#set_up_total
+      = "$#{@application_form.set_up_total}"
+  %tr
+    %td
+      Historical Data Entry
+    %td
+      = @application_form.data_entry_hours
+      hours
+      x $
+      = "$#{@application_form.data_entry_rate}"
+    %td#data_entry_total
+      = "$#{@application_form.data_entry_total}"
+  %tr
+    %td
+      Travel
+    %td
+      Rental Car and Accommodation
+    %td
+      $
+      = @application_form.travel_cost
+  %tr
+    %td
+      Estimate (Invoice based on actual time)
+    %td
+    %td#estimate_total
+      = "$#{@application_form.total_cost}"
+      
+%h3 Recurring cost
+%p $43.00 ex GST
+
+= form_tag entity_pricing_path(@user, @entity) do
+  %h2 Choose account to debit
+  .field
+    - options = @application_form.bank_accounts.collect {|a| [ "#{a.name} / #{a.account}", a.id ] }
+    - options += [["Bartercard Account / #{@application_form.bartercard.account}", -1]] unless @application_form.bartercard.account.blank?
+    = select("entity", "paying_account", options, { :include_blank => true })
+  .action
+    = submit_tag 'Continue'

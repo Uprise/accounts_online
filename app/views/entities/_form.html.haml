@@ -24,10 +24,8 @@
       = f.select :country, options_for_select([['New Zealand', 'NEW_ZEALAND'], ['Australia', 'AUSTRALIA']], @entity.country)
     %br
     .field.left.gst_number
-      = f.label :gst_number_1, 'GST number'
-      = f.text_field :gst_number_1
-      = f.text_field :gst_number_2
-      = f.text_field :gst_number_3
+      = f.label :gst_number, 'GST number'
+      = f.text_field :gst_number
     .field.left.abn_number
       = f.label :abn_number, 'ABN number'
       = f.text_field :abn_number

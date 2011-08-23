@@ -47,6 +47,20 @@ class EntitiesController < ApplicationController
     @entity = @user.entities.find(params[:id])
   end
   
+  def pricing
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    @application_form = @entity.sign_up_forms.first
+  end
+  
+  def set_account
+    @user = User.find(params[:user_id])
+    @entity = @user.entities.find(params[:entity_id])
+    if @entity.update_attributes(params[:entity])
+      redirect_to user_entity_path(@user, @entity)
+    end
+  end
+  
   def update
     @user = User.find(params[:user_id])
     @entity = @user.entities.find(params[:id])

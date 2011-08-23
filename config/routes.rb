@@ -13,6 +13,8 @@ AccountsOnline::Application.routes.draw do
         match 'update_status' => 'application_forms#update_status'
       end
       get 'change_banks' => 'entities#change_banks'
+      get 'pricing' => 'entities#pricing'
+      post 'pricing' => 'entities#set_account'
     end
   end
 
