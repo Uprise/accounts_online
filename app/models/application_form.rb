@@ -20,7 +20,6 @@ class ApplicationForm < ActiveRecord::Base
   
   validates :contact_person,  :presence     =>  true
   validates :accountant,      :presence     =>  true
-  validates :bank_accounts,   :length       =>  { :in => 1..3 }
   validates :addresses,       :length       =>  { :is => 2 }
   validates :form_type,       :inclusion    =>  { :in => %w( SIGNUP CHANGE_BANKLINK CHANGE_BANK_ACCOUNTS ) }
   validates :status,          :inclusion    =>  { :in => %w( PRICING WAITING INCOMPLETE COMPLETE ) }
